@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_074426) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_075402) do
+  create_table "locations", force: :cascade do |t|
+    t.string "country"
+    t.string "region"
+    t.string "district"
+    t.integer "loctype"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "body"
