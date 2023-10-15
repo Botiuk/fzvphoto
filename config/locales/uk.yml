@@ -1,2 +1,10 @@
 uk:
   appname: "Футбол з-за воріт та інші фото"
+
+  notice:
+    create:
+      location: "Місце репортажу створено"
+    update:
+      location: "Місце репортажу оновлено"
+    destroy:
+      location: "Місце репортажу видалено"
