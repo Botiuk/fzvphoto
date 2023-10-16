@@ -1,0 +1,11 @@
+<h4><%= t('.title') %></h4>
+
+<div>
+  <%= link_to t('button.add.location'), new_location_path, :method => :post %>
+</div>
+
+<div id="operations">
+    <% @locations.each do |location| %>
+      <%= render location %>
+    <% end %>    
+</div>

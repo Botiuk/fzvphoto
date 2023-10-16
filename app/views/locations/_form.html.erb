@@ -1,0 +1,48 @@
+<%= form_with(model: location) do |form| %>
+    <% if location.errors.any? %>
+        <div style="color: red">
+        <h2><%= t 'forms.messages.errors', count: location.errors.count %></h2>
+
+        <ul>
+            <% location.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class = "form">
+        <div>
+          <%= form.label :country, t('.country'), style: "display: block" %>
+          <%= form.text_field :country,  placeholder: t('.placeholder.country'), autofocus: true %>
+        </div>
+
+        <div>
+          <%= form.label :region, t('.region'), style: "display: block" %>
+          <%= form.text_field :region,  placeholder: t('.placeholder.region') %>
+        </div>
+
+        <div>
+          <%= form.label :district, t('.district'), style: "display: block" %>
+          <%= form.text_field :district,  placeholder: t('.placeholder.district') %>
+        </div>
+
+        <div>
+          <%= form.label :loctype, t('.loctype'), style: "display: block" %>
+          <%= form.select :loctype, Location.loctypes.keys.map{ |key| [Location.human_enum_name(:loctype, key), key] }, selected: @location.loctype %>
+        </div>
+
+        <div>
+          <%= form.label :name, t('.name'), style: "display: block" %>
+          <%= form.text_field :name,  placeholder: t('.placeholder.name') %>
+        </div>
+
+        <div>
+          <%= form.button nil, class: "btn btn-success" do %>
+            <i class="bi bi-check-lg"></i><%= t('button.submit') %>
+          <% end %>
+        </div>
+
+    </div>
+
+<% end %>

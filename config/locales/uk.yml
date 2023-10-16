@@ -8,3 +8,53 @@ uk:
       location: "Місце репортажу оновлено"
     destroy:
       location: "Місце репортажу видалено"
+  
+  activerecord:
+    attributes:
+      location:
+        loctypes:
+          city: "м."
+          town: "смт."
+          village: "с."
+        country: "Поле 'Країна'"
+        name: " Поле 'Назва населеного пункту'"
+
+  forms:
+      messages:
+        errors:
+          one: "Одна помилка не дає зберегти цей запис:"
+          few: "%{count} помилки не дають зберегти цей запис:"
+          many: "%{count} помилок не дають зберегти цей запис:"
+          other: "%{count} помилка:"
+
+  button:
+    add:
+      location: "Додати місце репортажу"
+    submit: "Підтвердити"
+
+  delete:
+    confirm: "Точно видалити?"
+
+  locations:
+    index:
+      title: "Місця репортажів"
+    location:
+      region: "обл."
+      district: "р-н"
+    new:
+      title: "Нове місце репортажу"
+    form:
+      country: "Країна:"
+      region: "Область:"
+      district: "Район:"
+      loctype: "Тип населеного пункту:"
+      name: "Назва населеного пункту:"
+      placeholder:
+        country: "Введіть країну"
+        region: "Введіть область"
+        district: "Введіть район"
+        name: "Введіть населений пункт"
+    show:
+      title: "Місце репортажу"
+    edit:
+      title: "Редагувати місце репортажу"

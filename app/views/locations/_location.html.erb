@@ -1,0 +1,16 @@
+<div id="<%= dom_id location %>">
+    <table>
+        <tr class = "one_item">
+            <td><%= Location.human_enum_name(:loctype, location.loctype) %> <%= location.name %>, </td>
+            <% if location.district.present? %>
+                <td><%= location.district %> <%= t('.district') %>, </dt>
+            <% end %>
+            <% if location.region.present? %>
+                <td><%= location.region %> <%= t('.region') %>, </td>
+            <% end %>
+            <td><%= location.country %></dt>
+            <td><%= link_to 'Edit', edit_location_path(location) %></td>
+            <td><%= link_to 'Destroy', location, data: { turbo_method: :delete, turbo_confirm: t('delete.confirm') } %></td>
+        </tr>
+    </table>
+</div>
