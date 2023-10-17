@@ -41,6 +41,8 @@ class LocationsController < ApplicationController
 
   def set_location
     @location = Location.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
   end
 
   def location_params
