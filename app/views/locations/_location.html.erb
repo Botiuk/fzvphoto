@@ -9,8 +9,7 @@
                 <td><%= location.region %> <%= t('.region') %>, </td>
             <% end %>
             <td><%= location.country %></dt>
-            <td><%= link_to 'Edit', edit_location_path(location) %></td>
-            <td><%= link_to 'Destroy', location, data: { turbo_method: :delete, turbo_confirm: t('delete.confirm') } %></td>
+            <td><%= link_to t('button.edit'), edit_location_path(location) %></td>            
         </tr>
     </table>
 </div>
