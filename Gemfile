@@ -30,6 +30,9 @@ gem "jbuilder"
 # Support for additional languages
 gem 'rails-i18n'
 
+# Authorization
+gem "devise", "~> 4.9"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
