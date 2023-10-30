@@ -1,8 +1,9 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_location, only: %i[ show edit update destroy ]
 
   def index
-    @locations = Location.all
+    @locations = Location.all.order(:name)
   end
 
   def show
@@ -47,6 +48,10 @@ class LocationsController < ApplicationController
 
   def location_params
     params.require(:location).permit(:country, :region, :district, :loctype, :name)
+  end
+
+  def authenticate_user!
+    redirect_to locations_url unless user_signed_in?
   end
 
 end
