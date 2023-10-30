@@ -1,7 +1,9 @@
 <h4><%= t('.title') %></h4>
 
 <div>
-  <%= link_to t('button.add.location'), new_location_path, :method => :post %>
+  <% if user_signed_in? %>
+    <%= link_to t('button.add.location'), new_location_path, :method => :post %>
+  <% end %>
 </div>
 
 <div id="operations">
