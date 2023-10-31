@@ -3,11 +3,14 @@ uk:
 
   notice:
     create:
-      location: "Місце репортажу створено"
+      location: "Локацію створено"
+      team: "Команду створено"
     update:
-      location: "Місце репортажу оновлено"
+      location: "Локацію оновлено"
+      team: "Команду оновлено"
     destroy:
-      location: "Місце репортажу видалено"
+      location: "Локацію видалено"
+      team: "Команду видалено"
   
   activerecord:
     attributes:
@@ -29,7 +32,7 @@ uk:
 
   button:
     add:
-      location: "Додати місце репортажу"
+      location: "Додати локацію"
     submit: "Підтвердити"
     edit: "Редагувати"
     delete: "Видалити"
@@ -39,12 +42,12 @@ uk:
 
   locations:
     index:
-      title: "Місця репортажів"
+      title: "Локації"
     location:
       region: "обл."
       district: "р-н"
     new:
-      title: "Нове місце репортажу"
+      title: "Нова локація"
     form:
       country: "Країна:"
       region: "Область:"
@@ -57,6 +60,6 @@ uk:
         district: "Введіть район"
         name: "Введіть населений пункт"
     show:
-      title: "Місце репортажу"
+      title: "Локація"
     edit:
-      title: "Редагувати місце репортажу"
+      title: "Редагувати локацію"
