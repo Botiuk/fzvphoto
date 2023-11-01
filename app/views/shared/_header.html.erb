@@ -1,3 +1,21 @@
-<nav>
-    <p>Navbar here</p>
+<nav class="navbar navbar-dark bg-dark">
+    <div>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <%= link_to 'Home', root_path, class: "nav-link active" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Locations', locations_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Teams', teams_path, class: "nav-link" %>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <% if user_signed_in? %>
+            <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo_method: :delete }%>
+        <% end %>
+    </div>
 </nav>
