@@ -1,0 +1,13 @@
+<h4><%= t('.title') %></h4>
+
+<div>
+  <% if user_signed_in? %>
+    <%= link_to t('button.add.team'), new_team_path, :method => :post %>
+  <% end %>
+</div>
+
+<div id="teams">
+    <% @teams.each do |team| %>
+      <%= render team %>
+    <% end %>
+</div>

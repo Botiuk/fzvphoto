@@ -33,6 +33,7 @@ uk:
   button:
     add:
       location: "Додати локацію"
+      team: "Додати команду"
     submit: "Підтвердити"
     edit: "Редагувати"
     delete: "Видалити"
@@ -63,3 +64,19 @@ uk:
       title: "Локація"
     edit:
       title: "Редагувати локацію"
+    
+  teams:
+    index:
+      title: "Команди"
+    new:
+      title: "Нова команда"
+    form:
+      name: "Назва команди"
+      represent: "Звідки команда"
+      placeholder:
+        name: "Введіть назву команди"
+        represent: "Введіть населений пункт чи громаду"
+    show:
+      title: "Команда"
+    edit:
+      title: "Редагувати команду"
