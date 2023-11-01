@@ -1,4 +1,4 @@
 <h4><%= t('.title') %></h4>
 
 <%= render "form", location: @location %>
-<%= button_to t('button.delete'), @location, method: :delete, data: { turbo_confirm: t('delete.confirm') } %>
+<%= button_to t('button.delete'), @location, method: :delete, data: { turbo_confirm: t('delete.confirm') }, class: "btn btn-danger" %>
