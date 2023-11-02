@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   resources :locations
   resources :teams
+  resources :tournaments
   root "locations#index"
 end

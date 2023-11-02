@@ -5,12 +5,15 @@ uk:
     create:
       location: "Локацію створено"
       team: "Команду створено"
+      tournament: "Турнір створено"
     update:
       location: "Локацію оновлено"
       team: "Команду оновлено"
+      tournament: "Турнір оновлено"
     destroy:
       location: "Локацію видалено"
       team: "Команду видалено"
+      tournament: "Турнір видалено"
   
   activerecord:
     attributes:
