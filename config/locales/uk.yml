@@ -40,6 +40,7 @@ uk:
     add:
       location: "Додати локацію"
       team: "Додати команду"
+      stadium: "Додати стадіон"
     submit: "Підтвердити"
     edit: "Редагувати"
     delete: "Видалити"
@@ -84,5 +85,23 @@ uk:
         represent: "Введіть населений пункт чи громаду"
     show:
       title: "Команда"
+    edit:
+      title: "Редагувати команду"
+  
+  stadia:
+    index:
+      title: "Стадіони"
+    stadium:
+      street: "вул."
+    form:
+      name: "Назва стадіону"
+      street: "Вулиця"
+      placeholder:
+        name: "Введіть назву стадіону"
+        street: "Введіть вулицю та будинок"
+    new:
+      title: "Новий стадіон"
+    show:
+      title: "Стадіон"
     edit:
       title: "Редагувати команду"

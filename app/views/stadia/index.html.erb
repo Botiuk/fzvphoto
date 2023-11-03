@@ -1,0 +1,13 @@
+<h4><%= t('.title') %></h4>
+
+<div>
+  <% if user_signed_in? %>
+    <%= link_to t('button.add.stadium'), new_stadium_path, :method => :post %>
+  <% end %>
+</div>
+
+<div id="stadia">
+    <% @stadia.each do |stadium| %>
+      <%= render stadium %>
+    <% end %>
+</div>

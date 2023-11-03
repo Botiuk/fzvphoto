@@ -1,0 +1,13 @@
+<div id="<%= dom_id stadium %>">
+    <table>
+        <tr class = "">
+            <td><%= stadium.name %> </td>
+            <% if stadium.street.present? %>
+                <td>(<%= t('.street') %> <%= stadium.street %>)</td>
+            <% end %>
+            <% if user_signed_in? %>
+                <td><%= link_to t('button.edit'), edit_stadium_path(stadium), class: "btn btn-secondary" %></td>
+            <% end %>
+        </tr>
+    </table>
+</div>
