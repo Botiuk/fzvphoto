@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :locations
   resources :teams
   resources :tournaments
+  resources :stadia
   root "locations#index"
 end
