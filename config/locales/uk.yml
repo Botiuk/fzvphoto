@@ -41,6 +41,7 @@ uk:
       location: "Додати локацію"
       team: "Додати команду"
       stadium: "Додати стадіон"
+      tournament: "Додати турнір"
     submit: "Підтвердити"
     edit: "Редагувати"
     delete: "Видалити"
@@ -105,3 +106,21 @@ uk:
       title: "Стадіон"
     edit:
       title: "Редагувати команду"
+  
+  tournaments:
+    index:
+      title: "Турніри"
+    form:
+      name: "Назва турніру"
+      subname: "Ліга"
+      group: "Група"
+      placeholder:
+        name: "Введіть назву турніру"
+        subname: "Введіть лігу"
+        group: "Введіть групу"
+    new:
+      title: "Новий турнір"
+    show:
+      title: "Турнір"
+    edit:
+      title: "Редагувати турнір"

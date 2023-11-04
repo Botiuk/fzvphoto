@@ -3,21 +3,21 @@ class TournamentsController < ApplicationController
     before_action :set_tournament, only: %i[ show edit update destroy ]
 
   def index
-    @tournaments = Tornament.all.order(:name)
+    @tournaments = Tournament.all.order(:name)
   end
 
   def show
   end
 
   def new
-    @tournament = Tornament.new
+    @tournament = Tournament.new
   end
 
   def edit
   end
 
   def create
-    @tournament = Tornament.new(tournament_params)
+    @tournament = Tournament.new(tournament_params)
     if @tournament.save
       redirect_to tournament_url(@tournament), notice: t('notice.create.tournament')
     else
@@ -41,7 +41,7 @@ class TournamentsController < ApplicationController
   private
 
   def set_tournament
-    @tournament = Tornament.find(params[:id])
+    @tournament = Tournament.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to root_path
   end

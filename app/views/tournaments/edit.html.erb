@@ -1,0 +1,4 @@
+<h4><%= t('.title') %></h4>
+
+<%= render "form", tournament: @tournament %>
+<%= button_to t('button.delete'), @tournament, method: :delete, data: { turbo_confirm: t('delete.confirm') }, class: "btn btn-danger" %>
