@@ -7,6 +7,7 @@ class LocationsController < ApplicationController
   end
 
   def show
+    redirect_to locations_url
   end
 
   def new
@@ -19,7 +20,7 @@ class LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      redirect_to location_url(@location), notice: t('notice.create.location')
+      redirect_to locations_url, notice: t('notice.create.location')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to location_url(@location), notice: t('notice.update.location')
+      redirect_to locations_url, notice: t('notice.update.location')
     else
       render :edit, status: :unprocessable_entity
     end

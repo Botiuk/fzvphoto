@@ -7,6 +7,7 @@ class TournamentsController < ApplicationController
   end
 
   def show
+    redirect_to tournaments_url
   end
 
   def new
@@ -19,7 +20,7 @@ class TournamentsController < ApplicationController
   def create
     @tournament = Tournament.new(tournament_params)
     if @tournament.save
-      redirect_to tournament_url(@tournament), notice: t('notice.create.tournament')
+      redirect_to tournaments_url, notice: t('notice.create.tournament')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class TournamentsController < ApplicationController
 
   def update
     if @tournament.update(tournament_params)
-      redirect_to tournament_url(@tournament), notice: t('notice.update.tournament')
+      redirect_to tournaments_url, notice: t('notice.update.tournament')
     else
       render :edit, status: :unprocessable_entity
     end

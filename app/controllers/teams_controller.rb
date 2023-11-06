@@ -7,6 +7,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    redirect_to teams_url
   end
 
   def new
@@ -19,7 +20,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to team_url(@team), notice: t('notice.create.team')
+      redirect_to teams_url, notice: t('notice.create.team')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class TeamsController < ApplicationController
 
   def update
     if @team.update(team_params)
-      redirect_to team_url(@team), notice: t('notice.update.team')
+      redirect_to teams_url, notice: t('notice.update.team')
     else
       render :edit, status: :unprocessable_entity
     end

@@ -7,6 +7,7 @@ class StadiaController < ApplicationController
   end
 
   def show
+    redirect_to stadia_url
   end
 
   def new
@@ -19,7 +20,7 @@ class StadiaController < ApplicationController
   def create
     @stadium = Stadium.new(stadium_params)
     if @stadium.save
-      redirect_to stadium_url(@stadium), notice: t('notice.create.stadium')
+      redirect_to stadia_url, notice: t('notice.create.stadium')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +28,7 @@ class StadiaController < ApplicationController
 
   def update
     if @stadium.update(stadium_params)
-      redirect_to stadium_url(@stadium), notice: t('notice.update.stadium')
+      redirect_to stadia_url, notice: t('notice.update.stadium')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +36,7 @@ class StadiaController < ApplicationController
 
   def destroy
     @stadium.destroy
-    redirect_to stadiums_url, notice: t('notice.destroy.stadium')
+    redirect_to stadia_url, notice: t('notice.destroy.stadium')
   end
 
   private
@@ -51,6 +52,6 @@ class StadiaController < ApplicationController
   end
 
   def authenticate_user!
-    redirect_to stadiums_url unless user_signed_in?
+    redirect_to stadia_url unless user_signed_in?
   end
 end
