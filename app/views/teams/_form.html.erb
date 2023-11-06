@@ -12,19 +12,19 @@
     <% end %>
 
     <div class = "form">
-        <div>
+        <div  class="mt-2">
           <%= form.label :name, t('.name'), style: "display: block" %>
           <%= form.text_field :name,  placeholder: t('.placeholder.name'), autofocus: true %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.label :represent, t('.represent'), style: "display: block" %>
           <%= form.text_field :represent,  placeholder: t('.placeholder.represent') %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.button nil, class: "btn btn-success" do %>
-            <i class="bi bi-check-lg"></i><%= t('button.submit') %>
+            <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
           <% end %>
         </div>
 

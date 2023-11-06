@@ -12,34 +12,34 @@
     <% end %>
 
     <div class = "form">
-        <div>
+        <div class="mt-2">
           <%= form.label :country, t('.country'), style: "display: block" %>
           <%= form.text_field :country,  placeholder: t('.placeholder.country'), autofocus: true %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.label :region, t('.region'), style: "display: block" %>
           <%= form.text_field :region,  placeholder: t('.placeholder.region') %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.label :district, t('.district'), style: "display: block" %>
           <%= form.text_field :district,  placeholder: t('.placeholder.district') %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.label :loctype, t('.loctype'), style: "display: block" %>
           <%= form.select :loctype, Location.loctypes.keys.map{ |key| [Location.human_enum_name(:loctype, key), key] }, selected: @location.loctype %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.label :name, t('.name'), style: "display: block" %>
           <%= form.text_field :name,  placeholder: t('.placeholder.name') %>
         </div>
 
-        <div>
+        <div class="mt-2">
           <%= form.button nil, class: "btn btn-success" do %>
-            <i class="bi bi-check-lg"></i><%= t('button.submit') %>
+            <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
           <% end %>
         </div>
 
