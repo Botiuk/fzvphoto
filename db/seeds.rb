@@ -8,6 +8,6 @@
 
 user = User.where(email: "fzvphoto@gmail.com").first_or_initialize
 user.update!(
-    password: STDIN.gets.chomp,
-    password_confirmation: STDIN.gets.chomp
+    password: "password",
+    password_confirmation: "password"
 )
