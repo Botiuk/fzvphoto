@@ -9,7 +9,7 @@
                 <td>|<%= tournament.group %></td>
             <% end %>
             <% if user_signed_in? %>
-                <td><%= link_to t('button.edit'), edit_tournament_path(tournament), class: "btn btn-secondary" %></td>
+                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_tournament_path(tournament), class: "btn btn-secondary" %></td>
             <% end %>
         </tr>
     </table>

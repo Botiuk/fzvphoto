@@ -10,7 +10,7 @@
             <% end %>
             <td><%= location.country %></td>
             <% if user_signed_in? %>
-                <td><%= link_to t('button.edit'), edit_location_path(location), class: "btn btn-secondary" %></td>
+                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_location_path(location), class: "btn btn-secondary" %></td>
             <% end %>
         </tr>
     </table>

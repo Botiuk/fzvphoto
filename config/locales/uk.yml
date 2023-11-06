@@ -43,7 +43,6 @@ uk:
       stadium: "Додати стадіон"
       tournament: "Додати турнір"
     submit: "Підтвердити"
-    edit: "Редагувати"
     delete: "Видалити"
 
   delete:
