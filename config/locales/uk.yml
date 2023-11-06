@@ -48,6 +48,14 @@ uk:
 
   delete:
     confirm: "Точно видалити?"
+  
+  navigation:
+    locations: "Локації"
+    teams: "Команди"
+    stadia: "Стадіони"
+    tournaments: "Турніри"
+
+
 
   locations:
     index:
