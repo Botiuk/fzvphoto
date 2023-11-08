@@ -27,6 +27,14 @@ uk:
           village: "с."
         country: "Поле 'Країна'"
         name: " Поле 'Назва населеного пункту'"
+      team:
+        name: "Поле 'Назва команди'"
+        represent: "Поле 'Звідки команда'"
+      stadium:
+        name: "Поле 'Назва стадіону'"
+        location_id: "Поле 'Населений пункт'"
+      tournament:
+        name: "Поле 'Назва турніру'"
 
   forms:
       messages:
