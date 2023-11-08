@@ -12,13 +12,16 @@ class StadiaController < ApplicationController
 
   def new
     @stadium = Stadium.new
+    @locations = Location.formhelper
   end
 
   def edit
+    @locations = Location.formhelper
   end
 
   def create
     @stadium = Stadium.new(stadium_params)
+    @locations = Location.formhelper
     if @stadium.save
       redirect_to stadia_url, notice: t('notice.create.stadium')
     else
@@ -48,7 +51,7 @@ class StadiaController < ApplicationController
   end
 
   def stadium_params
-    params.require(:stadium).permit(:name, :street)
+    params.require(:stadium).permit(:name, :street, :location_id)
   end
 
   def authenticate_user!

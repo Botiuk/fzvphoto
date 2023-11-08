@@ -7,4 +7,8 @@ class Location < ApplicationRecord
 
     enum :loctype, { city: 0, town: 1, village: 2 }, prefix: true
 
+    def self.formhelper
+        Location.order(:name).pluck(:name, :id)
+    end
+
 end

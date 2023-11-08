@@ -23,6 +23,11 @@
         </div>
 
         <div class="mt-2">
+            <%= form.label :location_id, t('.location'), style: "display: block" %>
+            <%= select(:stadium, :location_id, options_for_select(@locations), :include_blank => true) %>
+        </div>
+
+        <div class="mt-2">
           <%= form.button nil, class: "btn btn-success" do %>
             <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
           <% end %>
