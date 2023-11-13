@@ -1,14 +1,14 @@
 <div id="<%= dom_id location %>">
     <table>
-        <tr class = "">
-            <td><%= Location.human_enum_name(:loctype, location.loctype) %> <%= location.name %>, </td>
+        <tr class="">
+            <td><%= Location.human_enum_name(:loctype, location.loctype) %> <%= location.name %></td>
             <% if location.district.present? %>
-                <td><%= location.district %> <%= t('.district') %>, </td>
+                <td>, <%= location.district %> <%= t('.district') %></td>
             <% end %>
             <% if location.region.present? %>
-                <td><%= location.region %> <%= t('.region') %>, </td>
+                <td>, <%= location.region %> <%= t('.region') %></td>
             <% end %>
-            <td><%= location.country %></td>
+            <td>, <%= location.country %></td>
             <% if user_signed_in? %>
                 <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_location_path(location), class: "btn btn-secondary" %></td>
             <% end %>

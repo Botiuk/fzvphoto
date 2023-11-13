@@ -1,12 +1,12 @@
 <div id="<%= dom_id tournament %>">
     <table>
-        <tr class = "">
+        <tr class="">
             <td><%= tournament.name %></td>
             <% if tournament.subname.present? %>
-                <td>|<%= tournament.subname %></td>
+                <td>. <%= tournament.subname %></td>
             <% end %>
             <% if tournament.group.present? %>
-                <td>|<%= tournament.group %></td>
+                <td>. <%= tournament.group %></td>
             <% end %>
             <% if user_signed_in? %>
                 <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_tournament_path(tournament), class: "btn btn-secondary" %></td>
