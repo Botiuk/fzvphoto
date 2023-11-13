@@ -1,10 +1,18 @@
 <div id="<%= dom_id stadium %>">
     <table>
-        <tr class = "">
-            <td><%= stadium.name %> </td>
+        <tr class="">
+            <td><%= stadium.name %></td>
             <% if stadium.street.present? %>
-                <td>(<%= t('.street') %> <%= stadium.street %>)</td>
+                <td>, <%= t('.street') %> <%= stadium.street %></td>
             <% end %>
+            <td>, <%= Location.human_enum_name(:loctype, stadium.location.loctype) %> <%= stadium.location.name %></td>
+            <% if stadium.location.district.present? %>
+                <td>, <%= stadium.location.district %> <%= t('.district') %></td>
+            <% end %>
+            <% if stadium.location.region.present? %>
+                <td>, <%= stadium.location.region %> <%= t('.region') %></td>
+            <% end %>
+            <td>, <%= stadium.location.country %></td>
             <% if user_signed_in? %>
                 <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_stadium_path(stadium), class: "btn btn-secondary" %></td>
             <% end %>

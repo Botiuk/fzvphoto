@@ -105,6 +105,8 @@ uk:
       title: "Стадіони"
     stadium:
       street: "вул."
+      region: "обл."
+      district: "р-н"
     form:
       name: "Назва стадіону"
       street: "Вулиця"
