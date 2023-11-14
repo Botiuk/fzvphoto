@@ -3,7 +3,6 @@ class Stadium < ApplicationRecord
     has_many :matches
 
     validates :name, presence: true
-    validates :location_id, presence: true
 
     def self.formhelper
         Stadium.order(:name).pluck(:name, :id)
