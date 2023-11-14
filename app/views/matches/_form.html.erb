@@ -1,0 +1,49 @@
+<%= form_with(model: match) do |form| %>
+    <% if match.errors.any? %>
+        <div style="color: red">
+        <h2><%= t 'forms.messages.errors', count: match.errors.count %></h2>
+
+        <ul>
+            <% match.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class = "form">
+
+        <div class="mt-2">
+            <%= form.label :tournament_id, t('.tournament'), style: "display: block" %>
+            <%= select(:match, :tournament_id, options_for_select(@tournaments, :selected => form.object.tournament_id), :prompt => t('.prompt.tournament')) %>
+        </div>
+
+        <div class="mt-2">
+          <%= form.label :match_date, t('.matchdate'), style: "display: block" %>
+          <%= form.date_field :match_date, :value => Time.now.to_date %>
+        </div>
+
+        <div class="mt-2">
+            <%= form.label :stadium_id, t('.stadium'), style: "display: block" %>
+            <%= select(:match, :stadium_id, options_for_select(@stadia, :selected => form.object.stadium_id), :prompt => t('.prompt.stadium')) %>
+        </div>
+
+        <div class="mt-2">
+            <%= form.label t('.teams'), style: "display: block" %>
+            <%= select(:match, :home_team_id, options_for_select(@teams, :selected => form.object.home_team_id), :prompt => t('.prompt.hometeam')) %> - <%= select(:match, :visitor_team_id, options_for_select(@teams, :selected => form.object.visitor_team_id), :prompt => t('.prompt.visitorteam')) %>
+        </div>
+
+        <div class="mt-2">
+          <%= form.label t('.score'), style: "display: block" %>
+          <%= form.number_field :home_team_goal, min: 0, step: 1, :value => (form.object.home_team_goal || 0) %> : <%= form.number_field :visitor_team_goal, min: 0, step: 1, :value => (form.object.visitor_team_goal || 0)%>
+        </div>       
+
+        <div class="mt-2">
+          <%= form.button nil, class: "btn btn-success" do %>
+            <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
+          <% end %>
+        </div>
+
+    </div>
+
+<% end %>

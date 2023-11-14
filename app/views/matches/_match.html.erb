@@ -1,0 +1,38 @@
+<div id="<%= dom_id match %>">
+    <table class="mt-2">
+        <tr>
+            <td rowspan="4"><%= match.match_date %></td>
+            <td colspan="3">
+                <%= match.tournament.name %>
+                <% if match.tournament.subname.present? %>
+                    . <%= match.tournament.subname %>
+                <% end %>
+                <% if match.tournament.group.present? %>
+                    . <%= match.tournament.group %>
+                <% end %>
+            </td>
+            <% if user_signed_in? %>
+                <td rowspan="4"><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary" %></td>
+            <% end %>
+        </tr>
+        <tr>
+            <td colspan="3"><%= match.stadium.name %>, <%= Location.human_enum_name(:loctype, match.stadium.location.loctype) %> <%= match.stadium.location.name %>
+            <% if match.stadium.location.district.present? %>
+                , <%= match.stadium.location.district %> <%= t('.district') %>
+            <% end %>
+            <% if match.stadium.location.region.present? %>
+                , <%= match.stadium.location.region %> <%= t('.region') %>
+            <% end %>
+            </td>
+        </tr>
+        <tr>
+            <td>"<%= match.home_team.name %>"</td>
+            <td rowspan="2"><%= match.home_team_goal %> : <%= match.visitor_team_goal %></td>
+            <td>"<%= match.visitor_team.name %>"</td>
+        </tr>
+        <tr>
+            <td>/<%= match.home_team.represent %>/</td>
+            <td>/<%= match.visitor_team.represent %>/</td>            
+        </tr>
+    </table>
+</div>

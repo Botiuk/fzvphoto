@@ -7,16 +7,19 @@ uk:
       team: "Команду створено"
       tournament: "Турнір створено"
       stadium: "Стадіон створено"
+      match: "Матч створено"
     update:
       location: "Локацію оновлено"
       team: "Команду оновлено"
       tournament: "Турнір оновлено"
       stadium: "Стадіон оновлено"
+      match: "Матч оновлено"
     destroy:
       location: "Локацію видалено"
       team: "Команду видалено"
       tournament: "Турнір видалено"
       stadium: "Стадіон видалено"
+      match: "Матч видалено"
   
   activerecord:
     attributes:
@@ -35,6 +38,11 @@ uk:
         location_id: "Поле 'Населений пункт'"
       tournament:
         name: "Поле 'Назва турніру'"
+      match:
+        home_team: "Поле 'Команда-господар'"
+        visitor_team: "Поле 'Гостьова команда'"
+        tournament: "Поле 'Турнір'"
+        stadium: "Поле 'Стадіон'"
 
   forms:
       messages:
@@ -50,6 +58,7 @@ uk:
       team: "Додати команду"
       stadium: "Додати стадіон"
       tournament: "Додати турнір"
+      match: "Додати матч"
     submit: "Підтвердити"
     delete: "Видалити"
 
@@ -61,8 +70,7 @@ uk:
     teams: "Команди"
     stadia: "Стадіони"
     tournaments: "Турніри"
-
-
+    matches: "Матчі"
 
   locations:
     index:
@@ -134,3 +142,25 @@ uk:
       title: "Новий турнір"
     edit:
       title: "Редагувати турнір"
+
+  matches:
+    index:
+      title: "Матчі"
+    match:
+      region: "обл."
+      district: "р-н"
+    form:
+      tournament: "Турнір"
+      matchdate: "Дата матчу"
+      stadium: "Стадіон"
+      teams: "Команди"
+      score: "Рахунок"
+      prompt:
+       tournament: "-- виберіть турнір --"
+       stadium: "-- виберіть місце матчу --"
+       hometeam: "-- виберіть команду-господаря --"
+       visitorteam: "-- виберіть гостьову команду --"
+    new:
+      title: "Новий матч"
+    edit:
+      title: "Редагувати матч"

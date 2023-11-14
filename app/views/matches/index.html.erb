@@ -1,0 +1,13 @@
+<h4><%= t('.title') %></h4>
+
+<div>
+  <% if user_signed_in? %>
+    <%= link_to t('button.add.match'), new_match_path, :method => :post, class: "btn btn-info" %>
+  <% end %>
+</div>
+
+<div id="stadia">
+    <% @matches.each do |match| %>
+      <%= render match %>
+    <% end %>
+</div>
