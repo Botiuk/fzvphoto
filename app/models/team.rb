@@ -4,4 +4,8 @@ class Team < ApplicationRecord
 
     validates :name, presence: true
     validates :represent, presence: true
+
+    def self.formhelper
+        Team.order(:name).pluck(:name, :id)
+    end
 end
