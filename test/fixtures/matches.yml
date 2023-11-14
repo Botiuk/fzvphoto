@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  match_date: 2023-11-14
+  home_team: one
+  visitor_team: one
+  home_team_goal: 1
+  visitor_team_goal: 1
+  tournament: one
+  stadium: one
+
+two:
+  match_date: 2023-11-14
+  home_team: two
+  visitor_team: two
+  home_team_goal: 1
+  visitor_team_goal: 1
+  tournament: two
+  stadium: two
