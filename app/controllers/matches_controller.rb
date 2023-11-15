@@ -57,7 +57,7 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:match_date, :home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id)
+    params.require(:match).permit(:match_date, :home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id, :stage)
   end
 
   def authenticate_user!

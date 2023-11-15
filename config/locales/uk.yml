@@ -43,6 +43,7 @@ uk:
         visitor_team: "Поле 'Гостьова команда'"
         tournament: "Поле 'Турнір'"
         stadium: "Поле 'Стадіон'"
+        stage: "Поле 'Тур або етап змагань'"
 
   forms:
       messages:
@@ -150,12 +151,17 @@ uk:
     match:
       region: "обл."
       district: "р-н"
+      tour: "Тур"
+      playoff: "фіналу"
     form:
       tournament: "Турнір"
       matchdate: "Дата матчу"
       stadium: "Стадіон"
       teams: "Команди"
       score: "Рахунок"
+      stage: "Тур або етап змагань"
+      placeholder:
+        stage: "Введіть тур або етап"
       prompt:
        tournament: "-- виберіть турнір --"
        stadium: "-- виберіть місце матчу --"

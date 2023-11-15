@@ -10,6 +10,13 @@
                 <% if match.tournament.group.present? %>
                     . <%= match.tournament.group %>
                 <% end %>
+                <% if match.stage.scan(/[^0-9]/).empty? %>
+                    . <%= t('.tour') %> <%= match.stage %>
+                <% elsif match.stage.scan(/\//).present? %>
+                    . <%= match.stage %> <%= t('.playoff') %>
+                <% else %>
+                    . <%= match.stage %>
+                <% end %>
             </td>
             <% if user_signed_in? %>
                 <td rowspan="4"><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary" %></td>
@@ -32,7 +39,7 @@
         </tr>
         <tr>
             <td>/<%= match.home_team.represent %>/</td>
-            <td>/<%= match.visitor_team.represent %>/</td>            
+            <td>/<%= match.visitor_team.represent %>/</td>
         </tr>
     </table>
 </div>
