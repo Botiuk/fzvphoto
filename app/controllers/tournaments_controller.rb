@@ -1,4 +1,4 @@
-class TournamentsController < ApplicationController    
+class TournamentsController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
     before_action :set_tournament, only: %i[ show edit update destroy ]
 
