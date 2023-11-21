@@ -1,0 +1,13 @@
+<h4><%= t('.title') %></h4>
+
+<div>
+  <% if user_signed_in? %>
+    <%= link_to t('button.add.post'), new_post_path, :method => :post, class: "btn btn-info" %>
+  <% end %>
+</div>
+
+<div id="posts">
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+</div>

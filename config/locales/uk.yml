@@ -48,6 +48,9 @@ uk:
         tournament: "Поле 'Турнір'"
         stadium: "Поле 'Стадіон'"
         stage: "Поле 'Тур або етап змагань'"
+      post: 
+        title: "Поле 'Заголовок'"
+        location: "Поле 'Локація'"
 
   forms:
       messages:
@@ -64,6 +67,7 @@ uk:
       stadium: "Додати стадіон"
       tournament: "Додати турнір"
       match: "Додати матч"
+      post: "Додати допис"
     submit: "Підтвердити"
     delete: "Видалити"
 
@@ -76,6 +80,7 @@ uk:
     stadia: "Стадіони"
     tournaments: "Турніри"
     matches: "Матчі"
+    posts: "Дописи"
 
   locations:
     index:
@@ -175,3 +180,18 @@ uk:
       title: "Новий матч"
     edit:
       title: "Редагувати матч"
+  
+  posts:
+    index:
+      title: "Дописи"
+    form:
+      title: "Заголовок"
+      location: "Локація"
+      placeholder:
+        title: "Введіть назву допису"
+      prompt:
+        location: "-- виберіть локацію --"
+    new:
+      title: "Новий допис"
+    edit:
+      title: "Редагувати допис"

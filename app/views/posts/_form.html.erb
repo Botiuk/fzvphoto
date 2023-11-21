@@ -1,0 +1,33 @@
+<%= form_with(model: post) do |form| %>
+    <% if post.errors.any? %>
+        <div style="color: red">
+        <h2><%= t 'forms.messages.errors', count: post.errors.count %></h2>
+
+        <ul>
+            <% post.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class = "form">
+        <div class="mt-2">
+          <%= form.label :title, t('.title'), style: "display: block" %>
+          <%= form.text_field :title,  placeholder: t('.placeholder.title'), autofocus: true %>
+        </div>
+
+        <div class="mt-2">
+            <%= form.label :location_id, t('.location'), style: "display: block" %>
+            <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), :prompt => t('.prompt.location')) %>
+        </div>
+
+        <div class="mt-2">
+          <%= form.button nil, class: "btn btn-success" do %>
+            <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
+          <% end %>
+        </div>
+
+    </div>
+
+<% end %>
