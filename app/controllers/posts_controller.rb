@@ -50,7 +50,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :location_id)
+    params.require(:post).permit(:title, :location_id, :content)
   end
 
   def authenticate_user!
