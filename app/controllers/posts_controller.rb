@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_url, notice: t('notice.update.post')
+      redirect_to post_url(@post), notice: t('notice.update.post')
     else
       render :edit, status: :unprocessable_entity
     end
