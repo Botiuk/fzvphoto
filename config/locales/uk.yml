@@ -51,6 +51,7 @@ uk:
       post: 
         title: "Поле 'Заголовок'"
         location: "Поле 'Локація'"
+        content: "Поле 'Текст допису'"
 
   forms:
       messages:
@@ -187,6 +188,7 @@ uk:
     form:
       title: "Заголовок"
       location: "Локація"
+      content: "Текст допису"
       placeholder:
         title: "Введіть назву допису"
       prompt:
