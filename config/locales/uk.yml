@@ -189,6 +189,7 @@ uk:
       title: "Заголовок"
       location: "Локація"
       content: "Текст допису"
+      postdate: "Дата допису"
       placeholder:
         title: "Введіть назву допису"
       prompt:

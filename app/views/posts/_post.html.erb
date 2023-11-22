@@ -1,7 +1,7 @@
 <div id="<%= dom_id post %>">
     <table>
         <tr class="">
-            <td><h5><%= post.title %></h5></td>            
+            <td><h5><%= post.postdate %> | <%= post.title %></h5></td>            
             <td rowspan="2"><%= link_to '<i class="bi bi-file-text"></i>'.html_safe, post, class: "btn btn-secondary ms-1" %></td>
         </tr>
         <tr>

@@ -18,6 +18,11 @@
         </div>
 
         <div class="mb-3">
+          <%= form.label :postdate, t('.postdate'), style: "display: block" %>
+          <%= form.date_field :postdate, :value => ( form.object.postdate || Time.now.to_date ) %>
+        </div>
+
+        <div class="mb-3">
           <%= form.label :location_id, t('.location'), style: "display: block" %>
           <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), :prompt => t('.prompt.location')) %>
         </div>
