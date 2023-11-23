@@ -19,7 +19,7 @@
                 <% end %>
             </td>
             <% if user_signed_in? %>
-                <td rowspan="4"><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary" %></td>
+                <td rowspan="4"><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary ms-1" %></td>
             <% end %>
         </tr>
         <tr>
@@ -33,9 +33,20 @@
             </td>
         </tr>
         <tr>
-            <td>"<%= match.home_team.name %>"</td>
+            <td>
+            <% if match.home_team.teamtype.present? %>
+                <%= match.home_team.teamtype %> 
+            <% end %>
+            "<%= match.home_team.name %>"
+            </td>
+
             <td rowspan="2"><%= match.home_team_goal %> : <%= match.visitor_team_goal %></td>
-            <td>"<%= match.visitor_team.name %>"</td>
+            <td>
+            <% if match.visitor_team.teamtype.present? %>
+                <%= match.visitor_team.teamtype %> 
+            <% end %>
+            "<%= match.visitor_team.name %>"
+            </td>
         </tr>
         <tr>
             <td>/<%= match.home_team.represent %>/</td>
