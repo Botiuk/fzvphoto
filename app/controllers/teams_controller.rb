@@ -48,7 +48,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :represent)
+    params.require(:team).permit(:name, :represent, :teamtype)
   end
 
   def authenticate_user!

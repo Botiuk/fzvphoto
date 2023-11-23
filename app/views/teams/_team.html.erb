@@ -1,9 +1,14 @@
 <div id="<%= dom_id team %>">
     <table>
         <tr class="">
-            <td>"<%= team.name %>" (<%= team.represent %>)</td>
+            <td>
+                <% if team.teamtype.present? %>
+                    <%= team.teamtype %> 
+                <% end %>
+                "<%= team.name %>" (<%= team.represent %>)
+            </td>
             <% if user_signed_in? %>
-                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_team_path(team), class: "btn btn-secondary" %></td>
+                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_team_path(team), class: "btn btn-secondary ms-1" %></td>
             <% end %>
         </tr>
     </table>
