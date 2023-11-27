@@ -11,28 +11,28 @@
         </div>
     <% end %>
 
-    <div class = "form">
-        <div class="mb-3">
+    <div class="row g-3">
+        <div class="col-12">
           <%= form.label :title, t('.title'), style: "display: block" %>
           <%= form.text_field :title,  placeholder: t('.placeholder.title'), autofocus: true, class: "form-control" %>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-3">
           <%= form.label :postdate, t('.postdate'), style: "display: block" %>
-          <%= form.date_field :postdate, :value => ( form.object.postdate || Time.now.to_date ) %>
+          <%= form.date_field :postdate, :value => ( form.object.postdate || Time.now.to_date ), class: "form-control" %>
         </div>
 
-        <div class="mb-3">
+        <div class="col-md-9">
           <%= form.label :location_id, t('.location'), style: "display: block" %>
-          <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), :prompt => t('.prompt.location')) %>
+          <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), {:prompt => t('.prompt.location')}, {:class => "form-select"}) %>
         </div>
 
-        <div class="field mb-3">
+        <div class="field">
           <%= form.label :content, t('.content'), style: "display: block" %>
           <%= form.rich_text_area :content %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-12">
           <%= form.button nil, class: "btn btn-success" do %>
             <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
           <% end %>

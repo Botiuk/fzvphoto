@@ -11,39 +11,48 @@
         </div>
     <% end %>
 
-    <div class = "form">
+    <div class="row g-3">
 
-        <div class="mt-2">
+        <div class="col-md-9">
             <%= form.label :tournament_id, t('.tournament'), style: "display: block" %>
-            <%= select(:match, :tournament_id, options_for_select(@tournaments, :selected => form.object.tournament_id), :prompt => t('.prompt.tournament')) %>
+            <%= select(:match, :tournament_id, options_for_select(@tournaments, :selected => form.object.tournament_id), {:prompt => t('.prompt.tournament')}, {:class => "form-select"}) %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-3">
             <%= form.label :stage, t('.stage'), style: "display: block" %>
-            <%= form.text_field :stage,  placeholder: t('.placeholder.stage') %>
+            <%= form.text_field :stage,  placeholder: t('.placeholder.stage'), class: "form-control" %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-3">
           <%= form.label :match_date, t('.matchdate'), style: "display: block" %>
-          <%= form.date_field :match_date, :value => ( form.object.match_date || Time.now.to_date) %>
+          <%= form.date_field :match_date, :value => ( form.object.match_date || Time.now.to_date), class: "form-control" %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-9">
             <%= form.label :stadium_id, t('.stadium'), style: "display: block" %>
-            <%= select(:match, :stadium_id, options_for_select(@stadia, :selected => form.object.stadium_id), :prompt => t('.prompt.stadium')) %>
+            <%= select(:match, :stadium_id, options_for_select(@stadia, :selected => form.object.stadium_id), {:prompt => t('.prompt.stadium')}, {:class => "form-select"}) %>
         </div>
 
-        <div class="mt-2">
-            <%= form.label t('.teams'), style: "display: block" %>
-            <%= select(:match, :home_team_id, options_for_select(@teams, :selected => form.object.home_team_id), :prompt => t('.prompt.hometeam')) %> - <%= select(:match, :visitor_team_id, options_for_select(@teams, :selected => form.object.visitor_team_id), :prompt => t('.prompt.visitorteam')) %>
+        <div class="col-md-6">
+            <%= form.label t('.hometeam'), style: "display: block" %>
+            <%= select(:match, :home_team_id, options_for_select(@teams, :selected => form.object.home_team_id), {:prompt => t('.prompt.hometeam')}, {:class => "form-select"}) %> 
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-6">
+            <%= form.label t('.visitorteam'), style: "display: block" %>
+            <%= select(:match, :visitor_team_id, options_for_select(@teams, :selected => form.object.visitor_team_id), {:prompt => t('.prompt.visitorteam')}, {:class => "form-select"}) %>
+        </div>
+
+        <div class="col-md-3">
           <%= form.label t('.score'), style: "display: block" %>
-          <%= form.number_field :home_team_goal, min: 0, step: 1, :value => (form.object.home_team_goal || 0) %> : <%= form.number_field :visitor_team_goal, min: 0, step: 1, :value => (form.object.visitor_team_goal || 0)%>
+          <div class="input-group">          
+            <%= form.number_field :home_team_goal, min: 0, step: 1, :value => (form.object.home_team_goal || 0), class: "form-control" %>
+            <span class="input-group-text">:</span>
+            <%= form.number_field :visitor_team_goal, min: 0, step: 1, :value => (form.object.visitor_team_goal || 0), class: "form-control" %>
+          </div>
         </div>
 
-        <div class="mt-2">
+        <div class="col-12">
           <%= form.button nil, class: "btn btn-success" do %>
             <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
           <% end %>

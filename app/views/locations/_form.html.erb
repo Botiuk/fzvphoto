@@ -11,33 +11,35 @@
         </div>
     <% end %>
 
-    <div class = "form">
-        <div class="mt-2">
+    <div class="row g-3">
+        <div class="col-6">
           <%= form.label :country, t('.country'), style: "display: block" %>
-          <%= form.text_field :country,  placeholder: t('.placeholder.country'), autofocus: true %>
+          <%= form.text_field :country,  placeholder: t('.placeholder.country'), autofocus: true, class: "form-control" %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-6"></div>
+
+        <div class="col-md-6">
           <%= form.label :region, t('.region'), style: "display: block" %>
-          <%= form.text_field :region,  placeholder: t('.placeholder.region') %>
+          <%= form.text_field :region,  placeholder: t('.placeholder.region'), class: "form-control" %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-6">
           <%= form.label :district, t('.district'), style: "display: block" %>
-          <%= form.text_field :district,  placeholder: t('.placeholder.district') %>
+          <%= form.text_field :district,  placeholder: t('.placeholder.district'), class: "form-control" %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-2">
           <%= form.label :loctype, t('.loctype'), style: "display: block" %>
-          <%= form.select :loctype, Location.loctypes.keys.map{ |key| [Location.human_enum_name(:loctype, key), key] }, selected: @location.loctype %>
+          <%= form.select :loctype, Location.loctypes.keys.map{ |key| [Location.human_enum_name(:loctype, key), key] }, {:prompt => t('.prompt'), :selected => @location.loctype}, {:class => "form-select"} %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-md-10">
           <%= form.label :name, t('.name'), style: "display: block" %>
-          <%= form.text_field :name,  placeholder: t('.placeholder.name') %>
+          <%= form.text_field :name,  placeholder: t('.placeholder.name'), class: "form-control" %>
         </div>
 
-        <div class="mt-2">
+        <div class="col-12">
           <%= form.button nil, class: "btn btn-success" do %>
             <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
           <% end %>

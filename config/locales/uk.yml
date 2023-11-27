@@ -28,6 +28,7 @@ uk:
   activerecord:
     attributes:
       location:
+        loctype: "Поле 'Тип'"
         loctypes:
           city: "м."
           town: "смт."
@@ -95,13 +96,14 @@ uk:
       country: "Країна:"
       region: "Область:"
       district: "Район:"
-      loctype: "Тип населеного пункту:"
+      loctype: "Тип:"
       name: "Назва населеного пункту:"
       placeholder:
         country: "Введіть країну"
         region: "Введіть область"
         district: "Введіть район"
         name: "Введіть населений пункт"
+      prompt: "-- виберіть --"
     edit:
       title: "Редагувати локацію"
     
@@ -111,11 +113,11 @@ uk:
     new:
       title: "Нова команда"
     form:
-      teamtype: "Абревіатура перед назвою"
+      teamtype: "Абревіатура"
       name: "Назва команди"
       represent: "Звідки команда"
       placeholder:
-        teamtype: "Ведіть абревіатуру перед назвою (якщо є)"
+        teamtype: "(якщо є)"
         name: "Введіть назву команди"
         represent: "Введіть населений пункт чи громаду"
     edit:
@@ -150,8 +152,8 @@ uk:
       group: "Група"
       placeholder:
         name: "Введіть назву турніру"
-        subname: "Введіть лігу"
-        group: "Введіть групу"
+        subname: "Введіть лігу (якщо є)"
+        group: "Введіть групу (якщо є)"
     new:
       title: "Новий турнір"
     edit:
@@ -169,7 +171,8 @@ uk:
       tournament: "Турнір"
       matchdate: "Дата матчу"
       stadium: "Стадіон"
-      teams: "Команди"
+      hometeam: "Господарі"
+      visitorteam: "Гості"
       score: "Рахунок"
       stage: "Тур або етап змагань"
       placeholder:
