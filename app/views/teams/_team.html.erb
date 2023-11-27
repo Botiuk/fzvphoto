@@ -8,7 +8,7 @@
                 "<%= team.name %>" (<%= team.represent %>)
             </td>
             <% if user_signed_in? %>
-                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_team_path(team), class: "btn btn-secondary ms-1" %></td>
+                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_team_path(team), class: "btn btn-secondary btn-sm ms-1" %></td>
             <% end %>
         </tr>
     </table>
