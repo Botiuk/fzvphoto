@@ -1,9 +1,12 @@
-<h4><%= t('.title') %></h4>
+<div class="container text-start">
+  <div class="row justify-content-end">
+    <div class="col"><h4><%= t('.title') %></h4></div>
+    <div class="col text-end">
+        <%= button_to @stadium, method: :delete, data: { turbo_confirm: t('delete.confirm') }, class: "btn btn-danger" do %>
+            <i class="bi bi-trash"></i> <%= t('button.delete') %>
+        <% end %>
+    </div>
+  </div>
+</div>
 
 <%= render "form", stadium: @stadium %>
-
-<div class="mt-2">
-    <%= button_to @stadium, method: :delete, data: { turbo_confirm: t('delete.confirm') }, class: "btn btn-danger" do %>
-        <i class="bi bi-trash"></i> <%= t('button.delete') %>
-    <% end %>
-<div>

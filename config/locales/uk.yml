@@ -141,7 +141,7 @@ uk:
     new:
       title: "Новий стадіон"
     edit:
-      title: "Редагувати команду"
+      title: "Редагувати стадіон"
   
   tournaments:
     index:
