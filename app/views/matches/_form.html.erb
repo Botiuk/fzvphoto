@@ -13,12 +13,12 @@
 
     <div class="row g-3">
 
-        <div class="col-md-9">
+        <div class="col-md-8">
             <%= form.label :tournament_id, t('.tournament'), style: "display: block" %>
             <%= select(:match, :tournament_id, options_for_select(@tournaments, :selected => form.object.tournament_id), {:prompt => t('.prompt.tournament')}, {:class => "form-select"}) %>
         </div>
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <%= form.label :stage, t('.stage'), style: "display: block" %>
             <%= form.text_field :stage,  placeholder: t('.placeholder.stage'), class: "form-control" %>
         </div>

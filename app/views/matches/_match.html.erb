@@ -10,12 +10,14 @@
                 <% if match.tournament.group.present? %>
                     . <%= match.tournament.group %>
                 <% end %>
-                <% if match.stage.scan(/[^0-9]/).empty? %>
-                    . <%= t('.tour') %> <%= match.stage %>
-                <% elsif match.stage.scan(/\//).present? %>
-                    . <%= match.stage %> <%= t('.playoff') %>
-                <% else %>
-                    . <%= match.stage %>
+                <% if match.stage.present? %>
+                    <% if match.stage.scan(/[^0-9]/).empty? %>
+                        . <%= t('.tour') %> <%= match.stage %>
+                    <% elsif match.stage.scan(/\//).present? %>
+                        . <%= match.stage %> <%= t('.playoff') %>
+                    <% else %>
+                        . <%= match.stage %>
+                    <% end %>
                 <% end %>
             </td>
             <% if user_signed_in? %>
