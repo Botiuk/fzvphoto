@@ -1,9 +1,12 @@
-<h4><%= t('.title') %></h4>
-
-<div>
-  <% if user_signed_in? %>
-    <%= link_to t('button.add.location'), new_location_path, :method => :post, class: "btn btn-info" %>
-  <% end %>
+<div class="container text-start">
+  <div class="row justify-content-end">
+    <div class="col"><h4><%= t('.title') %></h4></div>
+    <div class="col text-end">
+        <% if user_signed_in? %>
+          <%= link_to t('button.add.location'), new_location_path, :method => :post, class: "btn btn-info" %>
+        <% end %>
+    </div>
+  </div>
 </div>
 
 <div id="locations">
