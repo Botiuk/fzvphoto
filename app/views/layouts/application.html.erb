@@ -9,14 +9,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <%= javascript_importmap_tags %>
+
+    <%= favicon_link_tag asset_path('fzv-32.png') %>
   </head>
 
   <body>
-    <header>
+    <header class="fixed-top bg-dark text-center text-white">
       <%= render 'shared/header' %>
     </header>
 
-    <main class="mx-auto mb-5 pb-4 mt-2" style="width: 1000px;">
+    <main class="mx-auto m-5 p-4" style="width: 1000px;">
       <%= render 'shared/flash_messages' %>
       <%= yield %>
     </main>
