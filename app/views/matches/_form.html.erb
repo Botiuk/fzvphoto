@@ -34,17 +34,17 @@
         </div>
 
         <div class="col-md-6">
-            <%= form.label t('.hometeam'), style: "display: block" %>
+            <%= form.label :home_team_id, t('.hometeam'), style: "display: block" %>
             <%= select(:match, :home_team_id, options_for_select(@teams, :selected => form.object.home_team_id), {:prompt => t('.prompt.hometeam')}, {:class => "form-select"}) %> 
         </div>
 
         <div class="col-md-6">
-            <%= form.label t('.visitorteam'), style: "display: block" %>
+            <%= form.label :visitor_team_id, t('.visitorteam'), style: "display: block" %>
             <%= select(:match, :visitor_team_id, options_for_select(@teams, :selected => form.object.visitor_team_id), {:prompt => t('.prompt.visitorteam')}, {:class => "form-select"}) %>
         </div>
 
         <div class="col-md-3">
-          <%= form.label t('.score'), style: "display: block" %>
+          <%= form.label :home_team_goal, t('.score'), style: "display: block" %>
           <div class="input-group">          
             <%= form.number_field :home_team_goal, min: 0, step: 1, :value => (form.object.home_team_goal || 0), class: "form-control" %>
             <span class="input-group-text">:</span>
