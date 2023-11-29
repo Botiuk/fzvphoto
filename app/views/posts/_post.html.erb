@@ -1,11 +1,10 @@
 <div id="<%= dom_id post %>">
     <table>
-        <tr class="">
-            <td><h5><%= post.postdate %> | <%= post.title %></h5></td>            
-            <td rowspan="2"><%= link_to '<i class="bi bi-file-text"></i>'.html_safe, post, class: "btn btn-secondary ms-1" %></td>
+        <tr>
+            <td><h5><%= post.postdate %> | <%= post.title %></h5></td>
         </tr>
         <tr>
-            <td><%= post.content.to_plain_text.truncate(256) %></td>
+            <td><%= post.content.to_plain_text.truncate(256) %> <%= link_to '<i class="bi bi-plus-lg"></i>'.html_safe, post, class: "btn btn-secondary btn-sm ms-1" %></td>
         </tr>
     </table>
 </div>
