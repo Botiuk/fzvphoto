@@ -107,6 +107,10 @@ uk:
       prompt: "-- виберіть --"
     edit:
       title: "Редагувати локацію"
+    searchposts:
+      title: "Дописи з локацією"
+      region: "обл."
+      district: "р-н"
     
   teams:
     index:

@@ -1,13 +1,12 @@
 class LocationsController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :set_location, only: %i[ show edit update destroy ]
+  before_action :set_location, only: %i[ show edit update destroy searchposts]
 
   def index
     @locations = Location.all.order(:name)
   end
 
   def show
-    redirect_to locations_url
   end
 
   def new
@@ -37,6 +36,10 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     redirect_to locations_url, notice: t('notice.destroy.location')
+  end
+
+  def searchposts
+    @posts = Post.search_location(params[:id])
   end
 
   private

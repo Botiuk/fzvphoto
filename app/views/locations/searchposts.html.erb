@@ -1,0 +1,20 @@
+<div class="container text-start">
+  <div class="row justify-content-end">
+    <div class="col"><h4>
+        <%= t('.title') %> <%= Location.human_enum_name(:loctype, @location.loctype) %> <%= @location.name %>,
+            <% if @location.district.present? %>
+                <%= @location.district %> <%= t('.district') %>,
+            <% end %>
+            <% if @location.region.present? %>
+                <%= @location.region %> <%= t('.region') %>,
+            <% end %>
+            <%= @location.country %>
+        </h4></div>
+  </div>
+</div>
+
+<div id="posts">
+    <% @posts.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+</div>
