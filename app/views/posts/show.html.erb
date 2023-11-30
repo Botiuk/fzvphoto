@@ -1,5 +1,5 @@
-<div class="container text-start">
-  <div class="row justify-content-end">
+<div class="container text-start text-bg-light border border-color-translucent rounded">
+  <div class="row justify-content-end py-2">
     <div class="col"><h4><%= @post.title %></h4></div>
     <div class="col text-end">
         <% if user_signed_in? %>
@@ -21,6 +21,8 @@
         </h6>
     </div>
   </div>
+
+  <%= @post.content %>
 </div>
 
-<%= @post.content %>
+
