@@ -1,33 +1,36 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <%= link_to root_path, class: "navbar-brand" do %>
+        <%= link_to root_path, class: "navbar-brand me-5" do %>
             <%= image_tag 'fzv-32.png' %> <%= t('appname') %>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <%= link_to t('navigation.posts'), posts_path, class: "nav-link" %>
+                    <%= link_to t('navigation.posts'), posts_path, class: "nav-link text-white" %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to t('navigation.locations'), locations_path, class: "nav-link" %>
+                    <%= link_to t('navigation.locations'), locations_path, class: "nav-link text-white" %>
                 </li>
                 <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <%= t('navigation.football') %>
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="background-color: #D3D3D3;">
                         <li class="nav-item">
                             <%= link_to t('navigation.teams'), teams_path, class: "dropdown-item" %>
                         </li>
+                        <li><hr class="dropdown-divider"></li>
                         <li class="nav-item">
                             <%= link_to t('navigation.tournaments'), tournaments_path, class: "dropdown-item" %>
                         </li>
+                        <li><hr class="dropdown-divider"></li>
                         <li class="nav-item">
                             <%= link_to t('navigation.stadia'), stadia_path, class: "dropdown-item" %>
                         </li>
+                        <li><hr class="dropdown-divider"></li>
                         <li class="nav-item">
                             <%= link_to t('navigation.matches'), matches_path, class: "dropdown-item" %>
                         </li>
