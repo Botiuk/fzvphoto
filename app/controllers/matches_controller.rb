@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
     before_action :set_match, only: %i[ show edit update destroy ]
 
   def index
-    @matches = Match.all.order(:match_date).reverse_order
+    @matches = Match.all.order(:match_date, :id).reverse_order
   end
 
   def show

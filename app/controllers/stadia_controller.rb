@@ -3,7 +3,7 @@ class StadiaController < ApplicationController
     before_action :set_stadium, only: %i[ show edit update destroy ]
 
   def index
-    @stadia = Stadium.all.order(:name)
+    @stadia = Stadium.all.order(:name, :street)
   end
 
   def show

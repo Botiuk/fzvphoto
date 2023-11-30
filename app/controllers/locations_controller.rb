@@ -3,7 +3,7 @@ class LocationsController < ApplicationController
   before_action :set_location, only: %i[ show edit update destroy searchposts]
 
   def index
-    @locations = Location.all.order(:name)
+    @locations = Location.all.order(:name, :region, :district)
   end
 
   def show

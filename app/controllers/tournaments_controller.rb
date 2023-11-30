@@ -3,7 +3,7 @@ class TournamentsController < ApplicationController
     before_action :set_tournament, only: %i[ show edit update destroy ]
 
   def index
-    @tournaments = Tournament.all.order(:name)
+    @tournaments = Tournament.all.order(:name, :subname, :group)
   end
 
   def show
