@@ -1,18 +1,23 @@
-<div id="<%= dom_id location %>">
-    <table>
-        <tr class="">
-            <td><%= Location.human_enum_name(:loctype, location.loctype) %> <%= location.name %></td>
-            <% if location.district.present? %>
-                <td>, <%= location.district %> <%= t('.district') %></td>
-            <% end %>
-            <% if location.region.present? %>
-                <td>, <%= location.region %> <%= t('.region') %></td>
-            <% end %>
-            <td>, <%= location.country %></td>
-            <td><%= link_to '<i class="bi bi-file-text"></i>'.html_safe, locations_searchposts_path(id: location.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %></td>
-            <% if user_signed_in? %>
-                <td><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_location_path(location), class: "btn btn-secondary btn-sm ms-1" %></td>
-            <% end %>
-        </tr>
-    </table>
+<div class="col-sm-4">
+    <div id="<%= dom_id location %>">
+        <div class="card text-bg-light mt-2 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><%= Location.human_enum_name(:loctype, location.loctype) %> <%= location.name %></h5>
+                <p class="card-text">
+                    <h6><i class="bi bi-geo-alt"></i> <% if location.district.present? %>
+                    <%= location.district %> <%= t('.district') %>, 
+                <% end %>
+                <% if location.region.present? %>
+                    <%= location.region %> <%= t('.region') %>,
+                <% end %>
+                <%= location.country %></h6>
+                    <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, locations_searchposts_path(id: location.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
+                <% if user_signed_in? %>
+                   <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_location_path(location), class: "btn btn-secondary btn-sm ms-1" %>
+                <% end %>
+                </p>
+            </div>
+        </div>
+        
+    </div>
 </div>
