@@ -1,58 +1,80 @@
-<div id="<%= dom_id match %>">
-    <table class="mt-2">
-        <tr>
-            <td rowspan="4"><%= match.match_date %></td>
-            <td colspan="3">
-                <%= match.tournament.name %>
-                <% if match.tournament.subname.present? %>
-                    . <%= match.tournament.subname %>
-                <% end %>
-                <% if match.tournament.group.present? %>
-                    . <%= match.tournament.group %>
-                <% end %>
-                <% if match.stage.present? %>
-                    <% if match.stage.scan(/[^0-9]/).empty? %>
-                        . <%= t('.tour') %> <%= match.stage %>
-                    <% elsif match.stage.scan(/\//).present? %>
-                        . <%= match.stage %> <%= t('.playoff') %>
-                    <% else %>
-                        . <%= match.stage %>
-                    <% end %>
-                <% end %>
-            </td>
-            <% if user_signed_in? %>
-                <td rowspan="4"><%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary btn-sm ms-1" %></td>
-            <% end %>
-        </tr>
-        <tr>
-            <td colspan="3"><%= match.stadium.name %>, <%= Location.human_enum_name(:loctype, match.stadium.location.loctype) %> <%= match.stadium.location.name %>
-            <% if match.stadium.location.district.present? %>
-                , <%= match.stadium.location.district %> <%= t('.district') %>
-            <% end %>
-            <% if match.stadium.location.region.present? %>
-                , <%= match.stadium.location.region %> <%= t('.region') %>
-            <% end %>
-            </td>
-        </tr>
-        <tr>
-            <td>
-            <% if match.home_team.teamtype.present? %>
-                <%= match.home_team.teamtype %> 
-            <% end %>
-            "<%= match.home_team.name %>"
-            </td>
+<div class="col-sm-6">
+    <div id="<%= dom_id match %>">
+        <div class="card text-bg-light mt-2 mb-3">
+            <div class="card-body">
+                <table class="card-text text-center table table-light table-borderless table-sm align-middle">
+                    <tr>
+                        <td colspan="3"><h6>
+                            <% if match.tournament.subname.present? || match.tournament.group.present? || match.stage.present? %>
+                                <%= match.tournament.name %>.
+                            <% else %>
+                                <%= match.tournament.name %>
+                            <% end %>
 
-            <td rowspan="2"><%= match.home_team_goal %> : <%= match.visitor_team_goal %></td>
-            <td>
-            <% if match.visitor_team.teamtype.present? %>
-                <%= match.visitor_team.teamtype %> 
-            <% end %>
-            "<%= match.visitor_team.name %>"
-            </td>
-        </tr>
-        <tr>
-            <td>/<%= match.home_team.represent %>/</td>
-            <td>/<%= match.visitor_team.represent %>/</td>
-        </tr>
-    </table>
+                            <% if match.tournament.subname.present? %>
+                                <%= match.tournament.subname %>.
+                            <% end %>
+                            <% if match.tournament.group.present? %>
+                                <%= match.tournament.group %>.
+                            <% end %>
+
+                            <% if match.stage.present? %>
+                                <% if match.stage.scan(/[^0-9]/).empty? %>
+                                    <%= t('.tour') %> <%= match.stage %>
+                                <% elsif match.stage.scan(/\//).present? %>
+                                    <%= match.stage %> <%= t('.playoff') %>
+                                <% else %>
+                                    <%= match.stage %>
+                                <% end %>
+                            <% end %>
+                        </h6></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <i class="bi bi-calendar3"></i> <%= match.match_date %>
+                    </tr>
+
+                    <tr>
+                        <td><h5>
+                            <% if match.home_team.teamtype.present? %>
+                                <%= match.home_team.teamtype %>
+                            <% end %>
+                            "<%= match.home_team.name %>"
+                        </h5></td>
+
+                        <td rowspan="2">
+                            <h5><%= match.home_team_goal %>:<%= match.visitor_team_goal %></h5>
+                        </td>
+
+                        <td><h5>
+                            <% if match.visitor_team.teamtype.present? %>
+                                <%= match.visitor_team.teamtype %>
+                            <% end %>
+                            "<%= match.visitor_team.name %>"
+                        </h5></td>
+                    </tr>
+
+                    <tr>
+                        <td>/<%= match.home_team.represent %>/</td>
+                        <td>/<%= match.visitor_team.represent %>/</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3">
+                            <i class="bi bi-geo-alt"></i> <%= match.stadium.name %>, <%= Location.human_enum_name(:loctype, match.stadium.location.loctype) %> <%= match.stadium.location.name %>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="3" class="text-start">
+                            <% if user_signed_in? %>
+                                <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary btn-sm ms-1" %>
+                            <% end %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
