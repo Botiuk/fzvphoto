@@ -108,7 +108,9 @@ uk:
     edit:
       title: "Редагувати локацію"
     searchposts:
-      title: "Дописи з локацією"
+      title_part1: "Дописи з локацією"
+      title_part2: "всього"
+      title_empty: "відсутні"
       region: "обл."
       district: "р-н"
     
