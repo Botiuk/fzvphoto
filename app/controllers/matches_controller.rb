@@ -1,5 +1,5 @@
 class MatchesController < ApplicationController
-    before_action :authenticate_user!, except: %i[index show]
+    before_action :authenticate_user!
     before_action :set_match, only: %i[ show edit update destroy ]
     before_action :my_formhelpers, only: %i[ new edit create ]
 
