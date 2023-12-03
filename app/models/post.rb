@@ -11,6 +11,10 @@ class Post < ApplicationRecord
         Post.where(location_id: location_id).order(:postdate,:id).reverse_order
     end
 
+    def self.search(posts_id)
+        Post.where(id: posts_id).order(:postdate,:id).reverse_order
+    end
+
     def self.formhelper
         Post.order(:postdate).reverse_order.pluck(:title, :id)
     end

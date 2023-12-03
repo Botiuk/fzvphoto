@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'locations/searchposts', to: 'locations#searchposts'
+  get 'teams/searchposts', to: 'teams#searchposts'
 
   resources :locations
   resources :teams

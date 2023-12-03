@@ -109,7 +109,7 @@ uk:
       title: "Редагувати локацію"
     searchposts:
       title_part1: "Дописи з локацією"
-      title_part2: "всього"
+      title_part2: "загалом"
       title_empty: "відсутні"
       region: "обл."
       district: "р-н"
@@ -129,6 +129,10 @@ uk:
         represent: "Введіть населений пункт чи громаду"
     edit:
       title: "Редагувати команду"
+    searchposts:
+      title_part1: "Дописи про матчі команди"
+      title_part2: "загалом"
+      title_empty: "відсутні"
   
   stadia:
     index:

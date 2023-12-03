@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
-    before_action :set_team, only: %i[ show edit update destroy ]
+    before_action :set_team, only: %i[ show edit update destroy searchposts ]
 
   def index
     @teams = Team.all.order(:name, :represent)
@@ -37,6 +37,11 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     redirect_to teams_url, notice: t('notice.destroy.team')
+  end
+
+  def searchposts
+    posts_id = Match.search_team(params[:id])
+    @posts = Post.search(posts_id)
   end
 
   private
