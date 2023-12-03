@@ -1,6 +1,6 @@
 class StadiaController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
-    before_action :set_stadium, only: %i[ show edit update destroy ]
+    before_action :set_stadium, only: %i[ show edit update destroy searchposts]
 
   def index
     @stadia = Stadium.all.order(:name, :street)
@@ -40,6 +40,11 @@ class StadiaController < ApplicationController
   def destroy
     @stadium.destroy
     redirect_to stadia_url, notice: t('notice.destroy.stadium')
+  end
+
+  def searchposts
+    posts_id = Match.search_stadium(params[:id])
+    @posts = Post.search(posts_id)
   end
 
   private

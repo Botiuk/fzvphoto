@@ -1,0 +1,32 @@
+<div class="container text-start mb-3 mt-1">
+  <div class="row justify-content-end">
+    <div class="col"><h4>
+        <%= t('.title_part1') %> 
+        <%= @stadium.name %>,
+        <% if @stadium.street.present? %>
+            <%= t('.street') %> <%= @stadium.street %>,
+        <% end %>
+        <%= Location.human_enum_name(:loctype, @stadium.location.loctype) %> <%= @stadium.location.name %>,
+                    <% if @stadium.location.district.present? %>
+                        <%= @stadium.location.district %> <%= t('.district') %>,
+                    <% end %>
+                    <% if @stadium.location.region.present? %>
+                        <%= @stadium.location.region %> <%= t('.region') %>,
+                    <% end %>
+                    <%= @stadium.location.country %>
+        <% if @posts.empty? %>
+            <%= t('.title_empty') %>
+        <% else %>
+            (<%= t('.title_part2') %> <%= @posts.size %>)
+        <% end %>
+    </h4></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <%= render 'posts/post', post: post %>
+    <% end %>
+  </div>
+</div>
