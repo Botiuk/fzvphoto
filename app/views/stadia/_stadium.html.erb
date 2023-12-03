@@ -19,14 +19,12 @@
                     <%= stadium.location.country %>
                 </p>
                 <p>
+                    <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, stadia_searchposts_path(id: stadium.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
                     <% if user_signed_in? %>
-                    <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_stadium_path(stadium), class: "btn btn-secondary btn-sm ms-1" %>
+                        <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_stadium_path(stadium), class: "btn btn-secondary btn-sm ms-1" %>
                     <% end %>
                 </p>
             </div>
         </div>
     </div>
 </div>
-
-
-

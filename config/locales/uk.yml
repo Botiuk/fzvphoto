@@ -153,6 +153,13 @@ uk:
       title: "Новий стадіон"
     edit:
       title: "Редагувати стадіон"
+    searchposts:
+      title_part1: "Дописи з стадіону"
+      title_part2: "загалом"
+      title_empty: "відсутні"
+      street: "вул."
+      region: "обл."
+      district: "р-н"
   
   tournaments:
     index:
