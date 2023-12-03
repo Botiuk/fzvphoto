@@ -12,10 +12,19 @@
                             <% end %>
 
                             <% if match.tournament.subname.present? %>
-                                <%= match.tournament.subname %>.
-                            <% end %>
+                                <% if match.tournament.group.present? || match.stage.present? %>
+                                    <%= match.tournament.subname %>.
+                                <% else %>
+                                    <%= match.tournament.subname %>
+                                <% end %>
+                            <% end %>    
+
                             <% if match.tournament.group.present? %>
-                                <%= match.tournament.group %>.
+                                <% if match.stage.present? %>
+                                    <%= match.tournament.group %>.
+                                <% else %>
+                                    <%= match.tournament.group %>
+                                <% end %>
                             <% end %>
 
                             <% if match.stage.present? %>
@@ -43,9 +52,9 @@
                             "<%= match.home_team.name %>"
                         </h5></td>
 
-                        <td rowspan="2">
-                            <h5><%= match.home_team_goal %>:<%= match.visitor_team_goal %></h5>
-                        </td>
+                        <td rowspan="2"><h5>
+                            <%= match.home_team_goal %>:<%= match.visitor_team_goal %>
+                        </h5></td>
 
                         <td><h5>
                             <% if match.visitor_team.teamtype.present? %>
@@ -68,6 +77,7 @@
 
                     <tr>
                         <td colspan="3" class="text-start">
+                            <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, post_path(id: match.post_id), class: "btn btn-secondary btn-sm ms-1" %>
                             <% if user_signed_in? %>
                                 <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary btn-sm ms-1" %>
                             <% end %>

@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
     before_action :set_match, only: %i[ show edit update destroy ]
+    before_action :my_formhelpers, only: %i[ new edit create ]
 
   def index
     @matches = Match.all.order(:match_date, :id).reverse_order
@@ -12,22 +13,13 @@ class MatchesController < ApplicationController
 
   def new
     @match = Match.new
-    @teams = Team.formhelper
-    @tournaments = Tournament.formhelper
-    @stadia = Stadium.formhelper
   end
 
   def edit
-    @teams = Team.formhelper
-    @tournaments = Tournament.formhelper
-    @stadia = Stadium.formhelper
   end
 
   def create
     @match = Match.new(match_params)
-    @teams = Team.formhelper
-    @tournaments = Tournament.formhelper
-    @stadia = Stadium.formhelper
     if @match.save
       redirect_to matches_url, notice: t('notice.create.match')
     else
@@ -57,10 +49,17 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:match_date, :home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id, :stage)
+    params.require(:match).permit(:match_date, :home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id, :stage, :post_id)
   end
 
   def authenticate_user!
     redirect_to matches_url unless user_signed_in?
+  end
+
+  def my_formhelpers
+    @teams = Team.formhelper
+    @tournaments = Tournament.formhelper
+    @stadia = Stadium.formhelper
+    @posts = Post.formhelper
   end
 end

@@ -52,6 +52,11 @@
           </div>
         </div>
 
+        <div class="col-md-4">
+            <%= form.label :post_id, t('.post'), style: "display: block" %>
+            <%= select(:match, :post_id, options_for_select(@posts, :selected => form.object.post_id), {:prompt => t('.prompt.post')}, {:class => "form-select"}) %>
+        </div>
+
         <div class="col-12">
           <%= form.button nil, class: "btn btn-success" do %>
             <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
