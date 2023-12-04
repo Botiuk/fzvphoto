@@ -1,6 +1,6 @@
 class TournamentsController < ApplicationController
     before_action :authenticate_user!, except: %i[index show]
-    before_action :set_tournament, only: %i[ show edit update destroy ]
+    before_action :set_tournament, only: %i[ show edit update destroy searchposts ]
 
   def index
     @tournaments = Tournament.all.order(:name, :subname, :group)
@@ -37,6 +37,11 @@ class TournamentsController < ApplicationController
   def destroy
     @tournament.destroy
     redirect_to tournaments_url, notice: t('notice.destroy.tournament')
+  end
+
+  def searchposts
+    posts_id = Match.search_tournament(params[:id])
+    @posts = Post.search(posts_id)
   end
 
   private

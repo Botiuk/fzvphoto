@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'locations/searchposts', to: 'locations#searchposts'
   get 'teams/searchposts', to: 'teams#searchposts'
+  get 'tournaments/searchposts', to: 'tournaments#searchposts'
   get 'stadia/searchposts', to: 'stadia#searchposts'
 
   resources :locations
