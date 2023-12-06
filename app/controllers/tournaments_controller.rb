@@ -40,8 +40,7 @@ class TournamentsController < ApplicationController
   end
 
   def searchposts
-    posts_id = Match.search_tournament(params[:id])
-    @posts = Post.search(posts_id)
+    @posts = Post.search_tournament(params[:id])
   end
 
   private

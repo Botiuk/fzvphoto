@@ -40,8 +40,7 @@ class TeamsController < ApplicationController
   end
 
   def searchposts
-    posts_id = Match.search_team(params[:id])
-    @posts = Post.search(posts_id)
+    @posts = Post.search_team(params[:id])
   end
 
   private

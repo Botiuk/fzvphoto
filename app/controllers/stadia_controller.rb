@@ -43,8 +43,7 @@ class StadiaController < ApplicationController
   end
 
   def searchposts
-    posts_id = Match.search_stadium(params[:id])
-    @posts = Post.search(posts_id)
+    @posts = Post.search_stadium(params[:id])
   end
 
   private
