@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
-    @posts = Post.all.order(:postdate, :id).reverse_order
+    @pagy, @posts = pagy(Post.all.order(:postdate, :id).reverse_order, items: 6)
+  rescue Pagy::OverflowError
+    redirect_to posts_url(page: 1)
   end
 
   def show
