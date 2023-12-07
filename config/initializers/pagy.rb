@@ -219,7 +219,7 @@ require 'pagy/extras/bootstrap'
 # Pagy::I18n.load(locale: 'de')
 #
 # load the "de" locale defined in the custom file at :filepath:
-# Pagy::I18n.load(locale: 'de', filepath: 'path/to/pagy-de.yml')
+Pagy::I18n.load(locale: 'uk', filepath: 'config/locales/pagy-uk.yml')
 #
 # load the "de", "en" and "es" built-in locales:
 # (the first passed :locale will be used also as the default_locale)
