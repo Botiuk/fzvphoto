@@ -3,7 +3,9 @@ class LocationsController < ApplicationController
   before_action :set_location, only: %i[ show edit update destroy searchposts]
 
   def index
-    @locations = Location.all.order(:name, :region, :district)
+    @pagy, @locations = pagy(Location.all.order(:name, :region, :district), items: 6)
+  rescue Pagy::OverflowError
+    redirect_to locations_url(page: 1)
   end
 
   def show
@@ -39,7 +41,9 @@ class LocationsController < ApplicationController
   end
 
   def searchposts
-    @posts = Post.search_location(params[:id])
+    @pagy, @posts = pagy(Post.search_location(params[:id]), items: 6)
+  rescue Pagy::OverflowError
+    redirect_to locations_url(page: 1)
   end
 
   private
