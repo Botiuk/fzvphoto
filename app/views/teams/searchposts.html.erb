@@ -1,7 +1,7 @@
 <div class="container text-start mb-3 mt-1">
   <div class="row justify-content-end">
     <div class="col"><h4>
-        <%= t('.title_part1') %> 
+        <%= t('.title_part1') %>
         <% if @team.teamtype.present? %>
             <%= @team.teamtype %>
         <% end %>
@@ -21,4 +21,8 @@
       <%= render 'posts/post', post: post %>
     <% end %>
   </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%== pagy_bootstrap_combo_nav_js(@pagy) if @pagy.pages > 1 %>
 </div>
