@@ -3,7 +3,9 @@ class StadiaController < ApplicationController
     before_action :set_stadium, only: %i[ show edit update destroy searchposts]
 
   def index
-    @stadia = Stadium.all.order(:name, :street)
+    @pagy, @stadia = pagy(Stadium.all.order(:name, :street), items: 6)
+  rescue Pagy::OverflowError
+    redirect_to stadia_url(page: 1)
   end
 
   def show
@@ -43,7 +45,9 @@ class StadiaController < ApplicationController
   end
 
   def searchposts
-    @posts = Post.search_stadium(params[:id])
+    @pagy, @posts = pagy(Post.search_stadium(params[:id]), items: 6)
+  rescue Pagy::OverflowError
+    redirect_to stadia_url(page: 1)
   end
 
   private
