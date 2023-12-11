@@ -1,5 +1,5 @@
 class StadiaController < ApplicationController
-    before_action :authenticate_user!, except: %i[index show]
+    before_action :authenticate_user!, except: %i[index show searchposts]
     before_action :set_stadium, only: %i[ show edit update destroy searchposts]
 
   def index
