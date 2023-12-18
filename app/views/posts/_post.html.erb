@@ -1,15 +1,27 @@
 <div class="col-sm-4">
     <div id="<%= dom_id post %>">
-    <%= link_to post, class: "text-decoration-none" do %>
-        <div class="card text-bg-light mt-2 mb-3">
-            <div class="card-body">
-                <h5 class="card-title"><%= post.title %></h5>
-                <p class="card-text">
-                    <h6><i class="bi bi-calendar3"></i> <%= post.postdate %></h6>
-                    <%= post.content.to_plain_text.truncate(256) %>
-                </p>
+        <%= link_to post, class: "text-decoration-none" do %>
+            <div class="card text-bg-light mt-2 mb-3">
+                <div class="card-body">
+                    <% if post.spoiler.present? %>
+                        <%= image_tag post.spoiler, class: "mw-100" %>
+                        <p class="card-text">
+                            <%= post.content.to_plain_text.truncate(128) %>
+                        </p>
+                    <% else %>
+                        <h5 class="card-title mb-1 pb-1"><%= post.title %></h5>
+                        <p class="card-text m-0 p-0">
+                            <h6>
+                                <table class="table align-middle table-light table-borderless table-sm m-0 p-0"><tr>
+                                <td class="text-start"><i class="bi bi-calendar3"></i> <%= post.postdate %></td>
+                                <td class="text-end"><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, post.location.loctype) %> <%= post.location.name %></td>
+                                </tr></table>
+                            </h6>
+                            <%= post.content.to_plain_text.truncate(512) %>
+                        </p>
+                    <% end %>
+                </div>
             </div>
-        </div>
-    <% end %>
+        <% end %>
     </div>
 </div>

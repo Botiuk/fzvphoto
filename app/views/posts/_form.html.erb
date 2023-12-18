@@ -27,6 +27,12 @@
           <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), {:prompt => t('.prompt.location')}, {:class => "form-select"}) %>
         </div>
 
+        <div class="col-12">
+          <%= form.label :spoiler, t('.spoiler'), style: "display: block" %>
+          <%= image_tag post.spoiler.variant(:thumb), class: "my-2" if post.spoiler.present? %>
+          <%= form.file_field :spoiler, class: "form-control" %>
+        </div>
+
         <div class="field">
           <%= form.label :content, t('.content'), style: "display: block" %>
           <%= form.rich_text_area :content %>

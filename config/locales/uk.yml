@@ -219,6 +219,7 @@ uk:
       location: "Локація"
       content: "Текст допису"
       postdate: "Дата допису"
+      spoiler: "Прев'ю"
       placeholder:
         title: "Введіть назву допису"
       prompt:

@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
+    has_one_attached :spoiler do |attachable|
+        attachable.variant :thumb, resize_to_limit: [150, 150]
+    end
     has_rich_text :content
-
+    
     belongs_to :location
     has_one :match
 

@@ -1,27 +1,29 @@
 <div class="container text-start text-bg-light border border-color-translucent rounded pb-3 my-3">
   <div class="row text-center py-2">
-    <div class="col"><h4><%= @post.title %></h4></div>
-  </div>
-  <div class="row text-center row justify-content-evenly">
-    <div class="col-6 text-start"><h6><i class="bi bi-calendar3"></i> <%= @post.postdate %></h6></div>
-    <div class="col-6 text-end">
-        <h6><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, @post.location.loctype) %> <%= @post.location.name %>,
-            <% if @post.location.district.present? %>
-                <%= @post.location.district %> <%= t('.district') %>,
-            <% end %>
-            <% if @post.location.region.present? %>
-                <%= @post.location.region %> <%= t('.region') %>,
-            <% end %>
-            <%= @post.location.country %>
-        </h6>
+    <div class="col">
+      <h4>
+        <%= @post.title %>
+        <% if user_signed_in? %>
+          <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_post_path(@post), class: "btn btn-secondary ms-2" %>
+        <% end %>
+      </h4>
     </div>
   </div>
-
+  <div class="row text-center justify-content-evenly">
+    <div class="col-6 text-start">
+      <h6><i class="bi bi-calendar3"></i> <%= @post.postdate %></h6>
+    </div>
+    <div class="col-6 text-end">
+      <h6><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, @post.location.loctype) %> <%= @post.location.name %>,
+        <% if @post.location.district.present? %>
+          <%= @post.location.district %> <%= t('.district') %>,
+        <% end %>
+        <% if @post.location.region.present? %>
+          <%= @post.location.region %> <%= t('.region') %>,
+        <% end %>
+        <%= @post.location.country %>
+      </h6>
+    </div>
+  </div>
   <%= @post.content %>
-
-  <% if user_signed_in? %>
-    <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_post_path(@post), class: "btn btn-secondary m-2" %>
-  <% end %>
 </div>
-
-
