@@ -26,6 +26,11 @@
       <%= form.text_field :represent,  placeholder: t('.placeholder.represent'), class: "form-control" %>
     </div>
 
+    <div class="field">
+          <%= form.label :teaminfo, t('.teaminfo'), style: "display: block" %>
+          <%= form.rich_text_area :teaminfo %>
+    </div>
+
     <div class="col-12">
       <%= form.button nil, class: "btn btn-success" do %>
         <i class="bi bi-check-lg"></i> <%= t('button.submit') %>

@@ -123,6 +123,7 @@ uk:
       teamtype: "Абревіатура"
       name: "Назва команди"
       represent: "Звідки команда"
+      teaminfo: "Про команду"
       placeholder:
         teamtype: "(якщо є)"
         name: "Введіть назву команди"

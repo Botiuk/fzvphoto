@@ -9,7 +9,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    redirect_to teams_url
   end
 
   def new
@@ -56,7 +55,7 @@ class TeamsController < ApplicationController
   end
 
   def team_params
-    params.require(:team).permit(:name, :represent, :teamtype)
+    params.require(:team).permit(:name, :represent, :teamtype, :teaminfo)
   end
 
   def authenticate_user!
