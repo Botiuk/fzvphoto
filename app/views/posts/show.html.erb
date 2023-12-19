@@ -10,10 +10,10 @@
     </div>
   </div>
   <div class="row text-center justify-content-evenly">
-    <div class="col-6 text-start">
+    <div class="col-3 text-start text-nowrap">
       <h6><i class="bi bi-calendar3"></i> <%= @post.postdate %></h6>
     </div>
-    <div class="col-6 text-end">
+    <div class="col-9 text-end">
       <h6><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, @post.location.loctype) %> <%= @post.location.name %>,
         <% if @post.location.district.present? %>
           <%= @post.location.district %> <%= t('.district') %>,

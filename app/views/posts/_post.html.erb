@@ -11,9 +11,9 @@
                     <% else %>
                         <h5 class="card-title mb-1 pb-1"><%= post.title %></h5>
                         <p class="card-text m-0 p-0">
-                            <h6>
+                            <h6 class="fw-light">
                                 <table class="table align-middle table-light table-borderless table-sm m-0 p-0"><tr>
-                                <td class="text-start"><i class="bi bi-calendar3"></i> <%= post.postdate %></td>
+                                <td class="text-start text-nowrap"><i class="bi bi-calendar3"></i> <%= post.postdate %></td>
                                 <td class="text-end"><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, post.location.loctype) %> <%= post.location.name %></td>
                                 </tr></table>
                             </h6>
