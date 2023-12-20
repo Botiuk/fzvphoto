@@ -3,17 +3,13 @@
         <div class="card text-bg-light mt-2 mb-3">
             <div class="card-body">
                 <h5 class="card-title"><%= tournament.name %></h5>
-                <p class="card-text">
-                    <% if tournament.subname.present? %>
-                        <%= tournament.subname %>
-                    <% end %>
+                <h6 class="card-text">
+                    <%= tournament.subname if tournament.subname.present? %>
                     <% if tournament.subname.present? && tournament.group.present? %>
                         /
                     <% end %>
-                    <% if tournament.group.present? %>
-                        <%= tournament.group %>
-                    <% end %>
-                </p>
+                    <%= tournament.group if tournament.group.present? %>
+                </h6>
                 <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, tournaments_searchposts_path(id: tournament.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
                 <% if user_signed_in? %>
                     <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_tournament_path(tournament), class: "btn btn-secondary btn-sm ms-1" %>
