@@ -2,10 +2,11 @@
     <div id="<%= dom_id team %>">
         <div class="card text-bg-light mt-2 mb-3">
             <div class="card-body">
+                <div class="text-center">
+                    <%= image_tag team.teamlogo.variant(:thumb), class: "text-center" if team.teamlogo.present? %>
+                </div>
                 <h5 class="card-title">
-                    <% if team.teamtype.present? %>
-                        <%= team.teamtype %>
-                    <% end %>
+                    <%= team.teamtype if team.teamtype.present? %>
                     "<%= team.name %>"
                 </h5>
                 <h5 class="card-text">(<%= team.represent %>)</h5>
