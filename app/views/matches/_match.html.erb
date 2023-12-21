@@ -79,9 +79,7 @@
                     <tr>
                         <td colspan="3" class="text-start">
                             <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, post_path(id: match.post_id), class: "btn btn-secondary btn-sm ms-1" %>
-                            <% if user_signed_in? %>
-                                <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary btn-sm ms-1" %>
-                            <% end %>
+                            <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_match_path(match), class: "btn btn-secondary btn-sm ms-1" %>
                         </td>
                     </tr>
                 </table>

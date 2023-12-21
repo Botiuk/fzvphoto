@@ -55,7 +55,7 @@ class MatchesController < ApplicationController
   end
 
   def authenticate_user!
-    redirect_to matches_url unless user_signed_in?
+    redirect_to root_path unless user_signed_in?
   end
 
   def my_formhelpers
