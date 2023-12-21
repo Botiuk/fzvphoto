@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_12_03_054859) do
+ActiveRecord::Schema[7.0].define(version: 2023_12_21_175922) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,6 +99,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_054859) do
     t.index ["location_id"], name: "index_stadia_on_location_id"
   end
 
+  create_table "stadium_posts", force: :cascade do |t|
+    t.bigint "stadium_id", null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_stadium_posts_on_post_id"
+    t.index ["stadium_id"], name: "index_stadium_posts_on_stadium_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -136,4 +145,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_03_054859) do
   add_foreign_key "matches", "tournaments"
   add_foreign_key "posts", "locations"
   add_foreign_key "stadia", "locations"
+  add_foreign_key "stadium_posts", "posts"
+  add_foreign_key "stadium_posts", "stadia"
 end
