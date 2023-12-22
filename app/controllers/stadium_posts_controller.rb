@@ -46,7 +46,7 @@ class StadiumPostsController < ApplicationController
     @pagy, @posts = pagy(Post.search_stadium_post(params[:id]), items: 6)
     @stadium = Stadium.find(params[:id])
   rescue
-    redirect_to stadia_path(page: 1)
+    redirect_to stadia_path
   end
 
   private
@@ -54,7 +54,7 @@ class StadiumPostsController < ApplicationController
   def set_stadium_post
     @stadium_post = StadiumPost.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
+    redirect_to stadium_posts_url
   end
 
   def stadium_post_params

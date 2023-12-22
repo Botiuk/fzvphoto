@@ -47,7 +47,7 @@ class StadiaController < ApplicationController
   def searchposts
     @pagy, @posts = pagy(Post.search_stadium(params[:id]), items: 6)
   rescue Pagy::OverflowError
-    redirect_to stadia_url(page: 1)
+    redirect_to stadia_url
   end
 
   private
@@ -55,7 +55,7 @@ class StadiaController < ApplicationController
   def set_stadium
     @stadium = Stadium.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
+    redirect_to stadia_url
   end
 
   def stadium_params

@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
   def searchposts
     @pagy, @posts = pagy(Post.search_team(params[:id]), items: 6)
   rescue Pagy::OverflowError
-    redirect_to teams_url(page: 1)
+    redirect_to teams_url
   end
 
   private
@@ -51,7 +51,7 @@ class TeamsController < ApplicationController
   def set_team
     @team = Team.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
+    redirect_to teams_url
   end
 
   def team_params

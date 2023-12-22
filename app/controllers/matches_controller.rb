@@ -47,7 +47,7 @@ class MatchesController < ApplicationController
   def set_match
     @match = Match.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
+    redirect_to matches_url
   end
 
   def match_params

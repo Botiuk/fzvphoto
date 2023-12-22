@@ -44,7 +44,7 @@ class TournamentsController < ApplicationController
   def searchposts    
     @pagy, @posts = pagy(Post.search_tournament(params[:id]), items: 6)
   rescue Pagy::OverflowError
-    redirect_to tournaments_url(page: 1)
+    redirect_to tournaments_url
   end
 
   private
@@ -52,7 +52,7 @@ class TournamentsController < ApplicationController
   def set_tournament
     @tournament = Tournament.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
+    redirect_to tournaments_url
   end
 
   def tournament_params

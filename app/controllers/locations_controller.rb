@@ -43,7 +43,7 @@ class LocationsController < ApplicationController
   def searchposts
     @pagy, @posts = pagy(Post.search_location(params[:id]), items: 6)
   rescue Pagy::OverflowError
-    redirect_to locations_url(page: 1)
+    redirect_to locations_url
   end
 
   private
@@ -51,7 +51,7 @@ class LocationsController < ApplicationController
   def set_location
     @location = Location.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path
+    redirect_to locations_url
   end
 
   def location_params
