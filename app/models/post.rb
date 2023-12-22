@@ -12,7 +12,7 @@ class Post < ApplicationRecord
     validates :content, presence: true
 
     def self.formhelper
-        Post.order(:postdate).reverse_order.pluck(:title, :id)
+        Post.order(:postdate).reverse_order.limit(6).pluck(:title, :id)
     end
 
     def self.search_location(location_id)
@@ -30,5 +30,9 @@ class Post < ApplicationRecord
     def self.search_stadium(stadium_id)
         Post.joins(:match).where(match: {stadium_id: stadium_id}).order(:postdate,:id).reverse_order
     end
-    
+
+    def self.search_stadium_post(stadium_id)
+        Post.joins(:stadium_post).where(stadium_post: {stadium_id: stadium_id}).order(:postdate,:id).reverse_order
+    end
+
 end
