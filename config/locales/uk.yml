@@ -10,6 +10,7 @@ uk:
       stadium: "Стадіон створено"
       match: "Матч створено"
       post: "Допис створено"
+      stadium_post: "Зв'язок 'репортаж про стадіон' створено"
     update:
       location: "Локацію оновлено"
       team: "Команду оновлено"
@@ -17,6 +18,7 @@ uk:
       stadium: "Стадіон оновлено"
       match: "Матч оновлено"
       post: "Допис оновлено"
+      stadium_post: "Зв'язок 'репортаж про стадіон' оновлено"
     destroy:
       location: "Локацію видалено"
       team: "Команду видалено"
@@ -24,6 +26,7 @@ uk:
       stadium: "Стадіон видалено"
       match: "Матч видалено"
       post: "Допис видалено"
+      stadium_post: "Зв'язок 'репортаж про стадіон' видалено"
   
   activerecord:
     attributes:
@@ -53,6 +56,9 @@ uk:
         title: "Поле 'Заголовок'"
         location: "Поле 'Локація'"
         content: "Поле 'Текст допису'"
+      stadium_post:
+        stadium: "Поле 'Стадіон'"
+        post: "Поле 'Допис'"
 
   forms:
       messages:
@@ -70,6 +76,7 @@ uk:
       tournament: "Додати турнір"
       match: "Додати матч"
       post: "Додати допис"
+      stadium_post: "Додати зв'язок 'репортаж про стадіон'"
     submit: "Підтвердити"
     delete: "Видалити"
 
@@ -84,6 +91,7 @@ uk:
     matches: "Матчі"
     posts: "Дописи"
     football: "Футбол"
+    stadium_posts: "Про стадіони"
 
   locations:
     index:
@@ -233,3 +241,25 @@ uk:
     show:
       region: "обл."
       district: "р-н"
+
+  stadium_posts:
+    index:
+      title: "Зв'язки 'репортаж про стадіон'"
+    stadium_post:
+      street: "вул."
+      region: "обл."
+      district: "р-н"
+    form:
+      stadium: "Стадіон"
+      post: "Допис"
+      prompt:
+        stadium: "-- виберіть стадіон --"
+        post: "-- виберіть допис --"
+    new:
+      title: "Новий зв'язок 'репортаж про стадіон'"
+    edit:
+      title: "Редагувати зв'язок 'репортаж про стадіон'"
+    searchposts:
+      title_part1: "Дописи про стадіон"
+      title_part2: "загалом"
+      title_empty: "відсутні"
