@@ -1,0 +1,22 @@
+<div class="col-sm-4">
+    <div id="<%= dom_id stadium_post %>">
+        <div class="card text-bg-light mt-2 mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><%= stadium_post.post.title %></h5>
+                <h6 class="card-text"><%= stadium_post.post.postdate %></h6>
+                <h6 class="card-text">
+                    <i class="bi bi-geo-alt"></i>
+                    <% if stadium_post.stadium.street.present? %>
+                        <%= t('.street') %> <%= stadium_post.stadium.street %>,
+                    <% end %>
+                    <%= Location.human_enum_name(:loctype, stadium_post.stadium.location.loctype) %> <%= stadium_post.stadium.location.name %>
+                </h6>
+                <p class="card-text">
+                    <%= stadium_post.post.content.to_plain_text.truncate(128) %>
+                </p>
+                <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, post_path(id: stadium_post.post_id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
+                <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_stadium_post_path(stadium_post), class: "btn btn-secondary btn-sm ms-1" %>
+            </div>
+        </div>
+    </div>
+</div>
