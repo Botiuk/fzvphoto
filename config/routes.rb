@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'teams/searchposts', to: 'teams#searchposts'
   get 'tournaments/searchposts', to: 'tournaments#searchposts'
   get 'stadia/searchposts', to: 'stadia#searchposts'
+  get 'stadium_posts/searchposts', to: 'stadium_posts#searchposts'
 
   resources :locations
   resources :teams
@@ -12,6 +13,7 @@ Rails.application.routes.draw do
   resources :stadia
   resources :matches
   resources :posts
+  resources :stadium_posts
   
   root "posts#index"
 end
