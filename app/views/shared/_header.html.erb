@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <%= link_to root_path, class: "navbar-brand me-5" do %>
+        <%= link_to root_path, class: "navbar-brand me-5 text-wrap" do %>
             <%= image_tag 'fzv-32.png' %> <%= t('appname') %>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,6 +34,10 @@
                             <li><hr class="dropdown-divider"></li>
                             <li class="nav-item">
                                 <%= link_to t('navigation.matches'), matches_path, class: "dropdown-item" %>
+                            </li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li class="nav-item">
+                                <%= link_to t('navigation.stadium_posts'), stadium_posts_path, class: "dropdown-item" %>
                             </li>
                         <% end %>
                     </ul>
