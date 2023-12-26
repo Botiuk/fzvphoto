@@ -56,6 +56,14 @@ uk:
         title: "Поле 'Заголовок'"
         location: "Поле 'Локація'"
         content: "Поле 'Текст допису'"
+        posttype: "Поле 'Про що допис'"
+        posttypes:
+          football: "Футбол"
+          stadium: "Стадіон"
+          hockey: "Хокей"
+          rugby: "Регбі"
+          karting: "Картинг"
+          other: "Інше"
       stadium_post:
         stadium: "Поле 'Стадіон'"
         post: "Поле 'Допис'"
@@ -230,10 +238,12 @@ uk:
       content: "Текст допису"
       postdate: "Дата допису"
       spoiler: "Прев'ю"
+      posttype: "Про що допис"
       placeholder:
         title: "Введіть назву допису"
       prompt:
         location: "-- виберіть локацію --"
+        posttype: "-- виберіть тематику допису --"
     new:
       title: "Новий допис"
     edit:
