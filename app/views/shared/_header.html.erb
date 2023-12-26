@@ -1,13 +1,13 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <%= link_to root_path, class: "navbar-brand me-5 text-wrap" do %>
+        <%= link_to root_path, class: "navbar-brand text-wrap" do %>
             <%= image_tag 'fzv-32.png' %> <%= t('appname') %>
         <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <%= link_to t('navigation.posts'), posts_path, class: "nav-link text-white" %>
                 </li>
@@ -40,6 +40,24 @@
                                 <%= link_to t('navigation.stadium_posts'), stadium_posts_path, class: "dropdown-item" %>
                             </li>
                         <% end %>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-grey" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <%= t('navigation.other') %>
+                    </a>
+                    <ul class="dropdown-menu" style="background-color: #D3D3D3;">
+                        <li class="nav-item">
+                            <%= link_to t('navigation.hockey'), posts_typeposts_path(:posttype => "hockey"), class: "dropdown-item" %>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="nav-item">
+                            <%= link_to t('navigation.rugby'), posts_typeposts_path(:posttype => "rugby"), class: "dropdown-item" %>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li class="nav-item">
+                            <%= link_to t('navigation.karting'), posts_typeposts_path(:posttype => "karting"), class: "dropdown-item" %>
+                        </li>
                     </ul>
                 </li>
             </ul>
