@@ -37,4 +37,8 @@ class Post < ApplicationRecord
         Post.joins(:stadium_post).where(stadium_post: {stadium_id: stadium_id}).order(:postdate,:id).reverse_order
     end
 
+    def self.search_type(posttype)
+        Post.where(posttype: posttype).order(:postdate,:id).reverse_order
+    end
+
 end

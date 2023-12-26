@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show]
+  before_action :authenticate_user!, except: %i[ index show typeposts ]
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
@@ -41,6 +41,13 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_url, notice: t('notice.destroy.post')
+  end
+
+  def typeposts
+    @pagy, @posts = pagy(Post.search_type(params[:posttype]), items: 6)
+    @posttype = params[:posttype]
+  rescue Pagy::OverflowError
+    redirect_to locations_url
   end
 
   private

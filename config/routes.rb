@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'tournaments/searchposts', to: 'tournaments#searchposts'
   get 'stadia/searchposts', to: 'stadia#searchposts'
   get 'stadium_posts/searchposts', to: 'stadium_posts#searchposts'
+  get 'posts/typeposts', to: 'posts#typeposts'
 
   resources :locations
   resources :teams
