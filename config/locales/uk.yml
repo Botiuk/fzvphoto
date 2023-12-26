@@ -251,6 +251,10 @@ uk:
     show:
       region: "обл."
       district: "р-н"
+    typeposts:
+      title_part1: "Дописи по тематиці"
+      title_part2: "загалом"
+      title_empty: "відсутні"     
 
   stadium_posts:
     index:
