@@ -3,7 +3,7 @@ class TeamsController < ApplicationController
     before_action :set_team, only: %i[ show edit update destroy searchposts ]
 
   def index
-    @pagy, @teams = pagy(Team.all.order(:name, :represent), items: 6)
+    @pagy, @teams = pagy(Team.all.order(:name, :represent), items: 9)
   rescue Pagy::OverflowError
     redirect_to teams_url(page: 1)
   end
@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
   def searchposts
     posts = Post.search_team(params[:id])
     @count = posts.size
-    @pagy, @posts = pagy(posts, items: 6)
+    @pagy, @posts = pagy(posts, items: 9)
   rescue Pagy::OverflowError
     redirect_to teams_url
   end

@@ -3,7 +3,7 @@ class TournamentsController < ApplicationController
     before_action :set_tournament, only: %i[ show edit update destroy searchposts ]
 
   def index
-    @pagy, @tournaments = pagy(Tournament.all.order(:name, :subname, :group), items: 6)
+    @pagy, @tournaments = pagy(Tournament.all.order(:name, :subname, :group), items: 9)
   rescue Pagy::OverflowError
     redirect_to tournaments_url(page: 1)
   end
@@ -44,7 +44,7 @@ class TournamentsController < ApplicationController
   def searchposts
     posts = Post.search_tournament(params[:id])
     @count = posts.size
-    @pagy, @posts = pagy(posts, items: 6)
+    @pagy, @posts = pagy(posts, items: 9)
   rescue Pagy::OverflowError
     redirect_to tournaments_url
   end

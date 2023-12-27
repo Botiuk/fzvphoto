@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
     before_action :my_formhelpers, only: %i[ new edit create ]
 
   def index
-    @pagy, @matches = pagy(Match.all.order(:match_date, :id).reverse_order, items: 6)
+    @pagy, @matches = pagy(Match.all.order(:match_date, :id).reverse_order, items: 9)
   rescue Pagy::OverflowError
     redirect_to matches_url(page: 1)
   end

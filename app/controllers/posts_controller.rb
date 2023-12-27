@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
 
   def index
-    @pagy, @posts = pagy(Post.all.order(:postdate, :id).reverse_order, items: 6)
+    @pagy, @posts = pagy(Post.all.order(:postdate, :id).reverse_order, items: 9)
   rescue Pagy::OverflowError
     redirect_to posts_url(page: 1)
   end
@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   def typeposts
     posts = Post.search_type(params[:posttype])
     @count = posts.size
-    @pagy, @posts = pagy(posts, items: 6)
+    @pagy, @posts = pagy(posts, items: 9)
     @posttype = params[:posttype]
   rescue Pagy::OverflowError
     redirect_to locations_url

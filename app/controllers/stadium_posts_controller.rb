@@ -4,7 +4,7 @@ class StadiumPostsController < ApplicationController
     before_action :my_formhelpers, only: %i[ new edit create ]
 
   def index
-    @pagy, @stadium_posts = pagy(StadiumPost.all, items: 6)
+    @pagy, @stadium_posts = pagy(StadiumPost.all, items: 9)
   rescue Pagy::OverflowError
     redirect_to stadium_posts_url(page: 1)
   end
@@ -45,7 +45,7 @@ class StadiumPostsController < ApplicationController
   def searchposts
     posts = Post.search_stadium_post(params[:id])
     @count = posts.size
-    @pagy, @posts = pagy(posts, items: 6)
+    @pagy, @posts = pagy(posts, items: 9)
     @stadium = Stadium.find(params[:id])
   rescue
     redirect_to stadia_path
