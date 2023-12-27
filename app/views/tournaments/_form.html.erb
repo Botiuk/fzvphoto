@@ -1,4 +1,4 @@
-<%= form_with(model: tournament) do |form| %>
+<%= form_with(model: tournament, html: {class: "card p-3 my-3"}) do |form| %>
     <% if tournament.errors.any? %>
         <div style="color: red">
         <h2><%= t 'forms.messages.errors', count: tournament.errors.count %></h2>

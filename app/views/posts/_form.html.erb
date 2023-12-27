@@ -1,4 +1,4 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, html: {class: "card p-3 my-3"}) do |form| %>
     <% if post.errors.any? %>
         <div style="color: red">
         <h2><%= t 'forms.messages.errors', count: post.errors.count %></h2>

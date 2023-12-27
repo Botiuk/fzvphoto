@@ -1,4 +1,4 @@
-<%= form_with(model: location) do |form| %>
+<%= form_with(model: location, html: {class: "card p-3 my-3"}) do |form| %>
     <% if location.errors.any? %>
         <div style="color: red">
         <h2><%= t 'forms.messages.errors', count: location.errors.count %></h2>
