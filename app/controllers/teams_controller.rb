@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-    before_action :authenticate_user!, except: %i[index show searchposts]
+    before_action :authenticate_user!, except: %i[ index show searchposts ]
     before_action :set_team, only: %i[ show edit update destroy searchposts ]
 
   def index
@@ -41,7 +41,9 @@ class TeamsController < ApplicationController
   end
 
   def searchposts
-    @pagy, @posts = pagy(Post.search_team(params[:id]), items: 6)
+    posts = Post.search_team(params[:id])
+    @count = posts.size
+    @pagy, @posts = pagy(posts, items: 6)
   rescue Pagy::OverflowError
     redirect_to teams_url
   end

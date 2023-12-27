@@ -1,5 +1,5 @@
 class StadiumPostsController < ApplicationController
-    before_action :authenticate_user!, except: %i[searchposts]
+    before_action :authenticate_user!, except: %i[ searchposts ]
     before_action :set_stadium_post, only: %i[ show edit update destroy ]
     before_action :my_formhelpers, only: %i[ new edit create ]
 
@@ -43,7 +43,9 @@ class StadiumPostsController < ApplicationController
   end
 
   def searchposts
-    @pagy, @posts = pagy(Post.search_stadium_post(params[:id]), items: 6)
+    posts = Post.search_stadium_post(params[:id])
+    @count = posts.size
+    @pagy, @posts = pagy(posts, items: 6)
     @stadium = Stadium.find(params[:id])
   rescue
     redirect_to stadia_path
@@ -67,6 +69,6 @@ class StadiumPostsController < ApplicationController
 
   def my_formhelpers
     @stadia = Stadium.formhelper
-    @posts = Post.formhelper("football")
+    @posts = Post.formhelper("stadium")
   end
 end

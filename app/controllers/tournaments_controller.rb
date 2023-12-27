@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-    before_action :authenticate_user!, except: %i[index show searchposts]
+    before_action :authenticate_user!, except: %i[ index show searchposts ]
     before_action :set_tournament, only: %i[ show edit update destroy searchposts ]
 
   def index
@@ -41,8 +41,10 @@ class TournamentsController < ApplicationController
     redirect_to tournaments_url, notice: t('notice.destroy.tournament')
   end
 
-  def searchposts    
-    @pagy, @posts = pagy(Post.search_tournament(params[:id]), items: 6)
+  def searchposts
+    posts = Post.search_tournament(params[:id])
+    @count = posts.size
+    @pagy, @posts = pagy(posts, items: 6)
   rescue Pagy::OverflowError
     redirect_to tournaments_url
   end

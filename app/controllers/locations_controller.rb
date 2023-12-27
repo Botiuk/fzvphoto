@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user!, except: %i[index show searchposts]
-  before_action :set_location, only: %i[ show edit update destroy searchposts]
+  before_action :authenticate_user!, except: %i[ index show searchposts ]
+  before_action :set_location, only: %i[ show edit update destroy searchposts ]
 
   def index
     @pagy, @locations = pagy(Location.all.order(:name, :region, :district), items: 6)
@@ -41,7 +41,9 @@ class LocationsController < ApplicationController
   end
 
   def searchposts
-    @pagy, @posts = pagy(Post.search_location(params[:id]), items: 6)
+    posts = Post.search_location(params[:id])
+    @count = posts.size
+    @pagy, @posts = pagy(posts, items: 6)
   rescue Pagy::OverflowError
     redirect_to locations_url
   end

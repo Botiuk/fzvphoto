@@ -44,7 +44,9 @@ class PostsController < ApplicationController
   end
 
   def typeposts
-    @pagy, @posts = pagy(Post.search_type(params[:posttype]), items: 6)
+    posts = Post.search_type(params[:posttype])
+    @count = posts.size
+    @pagy, @posts = pagy(posts, items: 6)
     @posttype = params[:posttype]
   rescue Pagy::OverflowError
     redirect_to locations_url
