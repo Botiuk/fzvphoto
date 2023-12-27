@@ -62,6 +62,6 @@ class MatchesController < ApplicationController
     @teams = Team.formhelper
     @tournaments = Tournament.formhelper
     @stadia = Stadium.formhelper
-    @posts = Post.formhelper
+    @posts = Post.formhelper("football")
   end
 end

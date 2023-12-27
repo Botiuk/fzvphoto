@@ -67,6 +67,6 @@ class StadiumPostsController < ApplicationController
 
   def my_formhelpers
     @stadia = Stadium.formhelper
-    @posts = Post.formhelper
+    @posts = Post.formhelper("football")
   end
 end

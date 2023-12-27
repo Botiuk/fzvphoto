@@ -13,8 +13,8 @@ class Post < ApplicationRecord
 
     enum :posttype, { football: 0, stadium: 1, hockey: 2, rugby: 3, karting: 4, other: 5 }, prefix: true
 
-    def self.formhelper
-        Post.order(:postdate).reverse_order.limit(6).pluck(:title, :id)
+    def self.formhelper(posttype)
+        Post.where(posttype: posttype).order(:postdate).reverse_order.limit(10).pluck(:title, :id)
     end
 
     def self.search_location(location_id)
