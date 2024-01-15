@@ -3,8 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.2"
 
-gem 'sassc-rails'
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.8"
 
@@ -29,18 +27,6 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Support for additional languages
-gem 'rails-i18n'
-
-# Authorization
-gem "devise", "~> 4.9"
-
-# Styles
-gem 'bootstrap', '~> 5.3.2'
-
-# Bootstrap JavaScript can use jQuery
-gem 'jquery-rails'
-
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -57,13 +43,28 @@ gem "tzinfo-data"
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
-# gem "sassc-rails"
+gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
+# Support for additional languages
+gem 'rails-i18n'
+
+# Authorization
+gem "devise", "~> 4.9"
+
+# Styles
+gem 'bootstrap', '~> 5.3.2'
+
+# Bootstrap JavaScript can use jQuery
+gem 'jquery-rails'
+
 # Pagination
 gem "pagy", "~> 6.2"
+
+# Cloudinary for image storage
+gem 'cloudinary'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
