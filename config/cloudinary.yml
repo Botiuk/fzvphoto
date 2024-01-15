@@ -1,0 +1,13 @@
+---
+development:
+  cloud_name: <%= ENV['Cloudinary_name'] %>
+  api_key: <%= ENV['Cloudinary_key'] %>
+  api_secret: <%= ENV['Cloudinary_secret'] %>
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: <%= ENV['Cloudinary_name'] %>
+  api_key: <%= ENV['Cloudinary_key'] %>
+  api_secret: <%= ENV['Cloudinary_secret'] %>
+  enhance_image_tag: true
+  static_file_support: true
