@@ -34,8 +34,8 @@
 
         <div class="col-12">
           <%= form.label :spoiler, t('.spoiler'), style: "display: block" %>
-          <%= image_tag post.spoiler.variant(:thumb), class: "my-2" if post.spoiler.present? %>
-          <%= form.file_field :spoiler, class: "form-control" %>
+          <%= cl_image_tag post.spoiler.key, class: "w-25 my-2" if post.spoiler.present? %>
+          <%= form.file_field :spoiler, direct_upload: true, class: "form-control" %>
         </div>
 
         <div class="field">

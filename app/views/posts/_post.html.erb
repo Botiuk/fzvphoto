@@ -4,7 +4,7 @@
             <div class="card text-bg-light mt-2 mb-3">
                 <div class="card-body">
                     <% if post.spoiler.present? %>
-                        <%= image_tag post.spoiler, class: "mw-100" %>
+                        <%= cl_image_tag  post.spoiler.key, class: "mw-100" %>
                         <p class="card-text">
                             <%= post.content.to_plain_text.truncate(128) %>
                         </p>
