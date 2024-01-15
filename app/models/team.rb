@@ -1,7 +1,5 @@
 class Team < ApplicationRecord
-    has_one_attached :teamlogo do |attachable|
-        attachable.variant :thumb, resize_to_limit: [100, 100]
-    end
+    has_one_attached :teamlogo
     has_rich_text :teaminfo
 
     has_many :home_team_matches, class_name: 'Match', foreign_key: 'home_team_id'

@@ -2,7 +2,7 @@
   <div class="row text-center py-2">
     <div class="col">
       <h4>
-        <%= image_tag @team.teamlogo.variant(:thumb) if @team.teamlogo.present? %>
+        <%= cl_image_tag @team.teamlogo.key if @team.teamlogo.present? %>
         <%= @team.teamtype if @team.teamtype.present? %>
         "<%= @team.name %>" (<%= @team.represent %>)
         <% if user_signed_in? %>
