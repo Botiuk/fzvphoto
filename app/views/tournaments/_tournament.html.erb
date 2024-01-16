@@ -8,6 +8,9 @@
                     <% if tournament.subname.present? && tournament.group.present? %>
                         /
                     <% end %>
+                    <% if tournament.subname.empty? && tournament.group.empty? %>
+                        -----
+                    <% end %>
                     <%= tournament.group if tournament.group.present? %>
                 </h6>
                 <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, tournaments_searchposts_path(id: tournament.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
