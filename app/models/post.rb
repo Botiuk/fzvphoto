@@ -5,6 +5,7 @@ class Post < ApplicationRecord
     belongs_to :location
     has_one :match
     has_one :stadium_post
+    has_one :album
 
     validates :title, presence: true
     validates :content, presence: true
