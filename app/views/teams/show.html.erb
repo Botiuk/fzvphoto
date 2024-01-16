@@ -11,5 +11,9 @@
       </h4>
     </div>
   </div>
-  <%= @team.teaminfo %>
+  <% if @team.teaminfo.present? %>
+    <%= @team.teaminfo %>
+  <% else %>
+    <%= t('.teaminfo_empty') %>
+  <% end %>
 </div>
