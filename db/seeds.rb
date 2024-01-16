@@ -8,6 +8,6 @@
 
 user = User.where(email: "fzvphoto@gmail.com").first_or_initialize
 user.update!(
-    password: "password",
-    password_confirmation: "password"
+    password: ENV['FZV_PASS'],
+    password_confirmation: ENV['FZV_PASS']
 )
