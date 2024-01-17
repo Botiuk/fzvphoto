@@ -39,7 +39,7 @@ class AlbumsController < ApplicationController
     end
 
     def destroy
-      @post.destroy
+      @album.destroy
       redirect_to albums_url, notice: t('notice.destroy.album')
     end
 
@@ -52,7 +52,7 @@ class AlbumsController < ApplicationController
     end
 
     def album_params
-      params.require(:album).permit(:post_id, images: [])
+      params.require(:album).permit(:post_id, photos: [])
     end
 
     def authenticate_user!

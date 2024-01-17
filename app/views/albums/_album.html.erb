@@ -1,0 +1,38 @@
+<div class="col-sm-4">
+    <div id="<%= dom_id album %>">
+        <%= link_to album, class: "text-decoration-none" do %>
+            <div class="card text-bg-light mt-2 mb-3">
+                <div class="card-body">
+                    <h5 class="card-title mb-1 pb-1">
+                        <%= album.post.title %>
+                    </h5>
+                    <p class="card-text m-0 p-0">
+                        <h6 class="fw-light">
+                            <table class="table align-middle table-light table-borderless table-sm m-0 p-0">
+                                <tr>
+                                    <td class="text-start text-nowrap"><i class="bi bi-calendar3"></i> <%= album.post.postdate %></td>
+                                    <td class="text-end"><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, album.post.location.loctype) %> <%= album.post.location.name %></td>
+                                </tr>
+                            </table>
+                        </h6>
+                    </p>
+                    <% if album.photos.attached? %>
+                        <div class="row d-flex justify-content-center px-3">
+                            <% album.photos.first(9).each do |photo| %>
+                            <div class="col-4 px-0">
+                                    <% if photo.representable? %>
+                                        <%= cl_image_tag photo.key, class: "mw-100" %>
+                                    <% else %>
+                                        <%= link_to rails_blob_path(file, disposition: "attachment") do %>
+                                            <%= image_tag "placeholder.png", alt: "Download file" %>
+                                        <% end %>
+                                    <% end %>
+                            </div>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

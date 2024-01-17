@@ -1,0 +1,43 @@
+<div class="container card text-start text-bg-light pb-3 my-3">
+    <div class="row text-center py-2">
+        <div class="col">
+            <h4>
+                <%= @album.post.title %>
+                <% if user_signed_in? %>
+                    <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_album_path(@album), class: "btn btn-secondary ms-2" %>
+                <% end %>
+            </h4>
+        </div>
+    </div>
+    <div class="row text-center justify-content-evenly">
+        <div class="col-3 text-start text-nowrap">
+            <h6><i class="bi bi-calendar3"></i> <%= @album.post.postdate %></h6>
+        </div>
+        <div class="col-9 text-end">
+            <h6><i class="bi bi-geo-alt"></i> <%= Location.human_enum_name(:loctype, @album.post.location.loctype) %> <%= @album.post.location.name %>,
+                <% if @album.post.location.district.present? %>
+                    <%= @album.post.location.district %> <%= t('.district') %>,
+                <% end %>
+                <% if @album.post.location.region.present? %>
+                    <%= @album.post.location.region %> <%= t('.region') %>,
+                <% end %>
+                <%= @album.post.location.country %>
+            </h6>
+        </div>    
+    </div>
+    <% if @album.photos.attached? %>
+        <div class="row justify-content-evenly px-3">
+            <% @album.photos.each do |photo| %>
+            <div class="col-4 px-0">
+                <% if photo.representable? %>
+                    <%= cl_image_tag photo.key, class: "mw-100" %>
+                <% else %>
+                    <%= link_to rails_blob_path(file, disposition: "attachment") do %>
+                        <%= image_tag "placeholder.png", alt: "Download file" %>
+                    <% end %>
+                <% end %>
+               </div> 
+            <% end %>
+        </div>
+    <% end %>
+</div>

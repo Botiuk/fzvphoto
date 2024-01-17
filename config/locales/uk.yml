@@ -70,6 +70,8 @@ uk:
       stadium_post:
         stadium: "Поле 'Стадіон'"
         post: "Поле 'Допис'"
+      album:
+        post: "Поле 'Допис до фоторепортажу'"
 
   forms:
       messages:
@@ -88,6 +90,7 @@ uk:
       match: "Додати матч"
       post: "Додати допис"
       stadium_post: "Додати зв'язок 'репортаж про стадіон'"
+      album: "Додати фотоальбом"
     submit: "Підтвердити"
     delete: "Видалити"
 
@@ -288,3 +291,16 @@ uk:
       title_part1: "Дописи про стадіон"
       title_part2: "загалом"
       title_empty: "відсутні"
+
+  albums:
+    index:
+      title: "Фотоальбоми"
+    form:
+      post: "Допис до фоторепортажу"
+      prompt:
+        post: "-- виберіть допис --"
+      photos: "Фотографії"
+    new:
+      title: "Новий фотоальбом"
+    edit:
+      title: "Редагувати фотоальбом"
