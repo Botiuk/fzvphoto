@@ -3,7 +3,7 @@
         <div class="card text-bg-light mt-2 mb-3">
             <div class="card-body">
                 <div class="text-center">
-                    <%= cl_image_tag team.teamlogo.key, class: "text-center" if team.teamlogo.present? %>
+                    <%= cl_image_tag(team.teamlogo.key, height: 100, crop: :scale) if team.teamlogo.present? %>
                 </div>
                 <h5 class="card-title">
                     <%= team.teamtype if team.teamtype.present? %>

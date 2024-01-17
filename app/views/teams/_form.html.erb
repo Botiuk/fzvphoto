@@ -28,7 +28,7 @@
 
     <div class="col-12">
           <%= form.label :teamlogo, t('.teamlogo'), style: "display: block" %>
-          <%= cl_image_tag team.teamlogo.key, class: "my-2" if team.teamlogo.present? %>
+          <%= cl_image_tag(team.teamlogo.key, height: 100, crop: :scale) if team.teamlogo.present? %>
           <%= form.file_field :teamlogo, direct_upload: true, class: "form-control" %>
         </div>
 
