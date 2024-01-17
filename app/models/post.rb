@@ -16,6 +16,10 @@ class Post < ApplicationRecord
         Post.where(posttype: posttype).order(:postdate).reverse_order.limit(10).pluck(:title, :id)
     end
 
+    def self.formhelper_albums
+        Post.order(:postdate).reverse_order.pluck(:title, :id)
+    end
+
     def self.search_location(location_id)
         Post.where(location_id: location_id).order(:postdate,:id).reverse_order
     end

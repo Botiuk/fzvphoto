@@ -8,13 +8,7 @@ Rails.application.routes.draw do
   get 'stadium_posts/searchposts', to: 'stadium_posts#searchposts'
   get 'posts/typeposts', to: 'posts#typeposts'
 
-  resources :locations
-  resources :teams
-  resources :tournaments
-  resources :stadia
-  resources :matches
-  resources :posts
-  resources :stadium_posts
+  resources :locations, :teams, :tournaments, :stadia, :matches, :posts, :stadium_posts, :albums
   
   root "posts#index"
 end
