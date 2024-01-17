@@ -107,6 +107,8 @@ uk:
     hockey: "Хокей"
     rugby: "Регбі"
     karting: "Картинг"
+    albums: "Фотоальбоми"
+    logout: "Вийти"
 
   locations:
     index:
