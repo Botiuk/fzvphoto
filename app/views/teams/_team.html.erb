@@ -13,6 +13,7 @@
                     (<%= team.represent %>)
                 </h6>
                 <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, teams_searchposts_path(id: team.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
+                <%= link_to '<i class="bi bi-camera"></i>'.html_safe, teams_searchalbums_path(id: team.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
                 <%= link_to '<i class="bi bi-person-vcard"></i>'.html_safe, team, class: "btn btn-secondary btn-sm ms-1" %>
                 <% if user_signed_in? %>
                     <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_team_path(team), class: "btn btn-secondary btn-sm ms-1" %>

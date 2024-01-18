@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'posts/typeposts', to: 'posts#typeposts'
 
   get 'locations/searchalbums', to: 'locations#searchalbums'
+  get 'teams/searchalbums', to: 'teams#searchalbums'
 
   resources :locations, :teams, :tournaments, :stadia, :matches, :posts, :stadium_posts, :albums
   

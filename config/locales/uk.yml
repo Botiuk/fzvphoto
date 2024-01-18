@@ -165,13 +165,13 @@ uk:
         represent: "Введіть населений пункт чи громаду"
     edit:
       title: "Редагувати команду"
-    searchposts:
-      title_part1: "Дописи про матчі команди"
-      title_part2: "загалом"
-      title_empty: "відсутні"
+    searchtitle:
+      title_part1: "Пошук по команді"
+      title_part2: "знайдено"
+      title_empty: "нічого не знайшов"
     show:
       teaminfo_empty: "Тут має бути про команду - історія, досягнення і т. п. Але поки ця інформація ще незібрана. "
-  
+
   stadia:
     index:
       title: "Стадіони"

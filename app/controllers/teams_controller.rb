@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show searchposts ]
-    before_action :set_team, only: %i[ show edit update destroy searchposts ]
+    before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
+    before_action :set_team, only: %i[ show edit update destroy searchposts searchalbums ]
 
   def index
     @pagy, @teams = pagy(Team.all.order(:name, :represent), items: 9)
@@ -44,6 +44,14 @@ class TeamsController < ApplicationController
     posts = Post.search_team(params[:id])
     @count = posts.size
     @pagy, @posts = pagy(posts, items: 9)
+  rescue Pagy::OverflowError
+    redirect_to teams_url
+  end
+
+  def searchalbums
+    albums = Album.search_team(params[:id])
+    @count = albums.size
+    @pagy, @albums = pagy(albums, items: 9)
   rescue Pagy::OverflowError
     redirect_to teams_url
   end

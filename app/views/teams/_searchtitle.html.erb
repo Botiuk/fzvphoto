@@ -1,0 +1,16 @@
+<div class="container text-start mb-3 mt-1">
+  <div class="row justify-content-end">
+    <div class="col"><h4>
+        <%= t('.title_part1') %>
+        <% if @team.teamtype.present? %>
+            <%= @team.teamtype %>
+        <% end %>
+        "<%= @team.name %>" /<%= @team.represent %>/
+        <% if @count == 0 %>
+            <%= t('.title_empty') %>
+        <% else %>
+            (<%= t('.title_part2') %> <%= @count %>)
+        <% end %>
+    </h4></div>
+  </div>
+</div>
