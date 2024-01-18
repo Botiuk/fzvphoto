@@ -1,6 +1,6 @@
 # fzvphoto
 
-Built with: Rails 7.0.4, postgres, Turbo, Stimulus, Bootstrap, Trix editor.
+Built with: Rails 7.0.8, Ruby 3.2.2, postgres, Turbo, Stimulus, Bootstrap, Trix editor, Cloudinary.
 
 Deployed on: https://fzvphoto.onrender.com/
 
