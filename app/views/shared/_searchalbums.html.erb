@@ -1,0 +1,17 @@
+<div class="container">
+  <% if @count == 0 %>
+      <div class="text-center fs-1 text-body-tertiary">
+        <i class="bi bi-camera"></i>
+      </div>
+  <% else %>
+    <div class="row">
+      <% @albums.each do |album| %>
+        <%= render 'albums/album', album: album %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%== pagy_bootstrap_combo_nav_js(@pagy) if @pagy.pages > 1 %>
+</div>
