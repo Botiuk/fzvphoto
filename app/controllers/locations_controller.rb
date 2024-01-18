@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :authenticate_user!, except: %i[ index show searchposts ]
-  before_action :set_location, only: %i[ show edit update destroy searchposts ]
+  before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
+  before_action :set_location, only: %i[ show edit update destroy searchposts searchalbums ]
 
   def index
     @pagy, @locations = pagy(Location.all.order(:name, :region, :district), items: 9)
@@ -44,6 +44,14 @@ class LocationsController < ApplicationController
     posts = Post.search_location(params[:id])
     @count = posts.size
     @pagy, @posts = pagy(posts, items: 9)
+  rescue Pagy::OverflowError
+    redirect_to locations_url
+  end
+
+  def searchalbums
+    albums = Album.search_location(params[:id])
+    @count = albums.size
+    @pagy, @albums = pagy(albums, items: 9)
   rescue Pagy::OverflowError
     redirect_to locations_url
   end

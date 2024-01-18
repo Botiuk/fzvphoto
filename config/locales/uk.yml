@@ -141,6 +141,12 @@ uk:
       title_empty: "відсутні"
       region: "обл."
       district: "р-н"
+    searchalbums:
+      title_part1: "Фотоальбоми з локацією"
+      title_part2: "загалом"
+      title_empty: "відсутні"
+      region: "обл."
+      district: "р-н"
     
   teams:
     index:
