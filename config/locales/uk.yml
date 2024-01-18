@@ -135,16 +135,10 @@ uk:
       prompt: "-- виберіть --"
     edit:
       title: "Редагувати локацію"
-    searchposts:
-      title_part1: "Дописи з локацією"
-      title_part2: "загалом"
-      title_empty: "відсутні"
-      region: "обл."
-      district: "р-н"
-    searchalbums:
-      title_part1: "Фотоальбоми з локацією"
-      title_part2: "загалом"
-      title_empty: "відсутні"
+    searchtitle:
+      title_part1: "Пошук по локації"
+      title_part2: "знайдено"
+      title_empty: "нічого не знайшов"
       region: "обл."
       district: "р-н"
     
