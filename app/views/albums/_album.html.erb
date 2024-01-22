@@ -21,7 +21,7 @@
                             <% album.photos.first(9).each do |photo| %>
                             <div class="col-4 px-0">
                                     <% if photo.representable? %>
-                                        <%= cl_image_tag photo.key, class: "mw-100" %>
+                                        <img class="mw-100" src="<%= cloudinary_url(photo.key, height: 150, crop: :scale) %>" >
                                     <% else %>
                                         <%= link_to rails_blob_path(file, disposition: "attachment") do %>
                                             <%= image_tag "placeholder.png", alt: "Download file" %>

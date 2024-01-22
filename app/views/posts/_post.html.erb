@@ -4,7 +4,7 @@
             <div class="card text-bg-light mt-2 mb-3">
                 <div class="card-body">
                     <% if post.spoiler.present? %>
-                        <%= cl_image_tag  post.spoiler.key, class: "mw-100" %>
+                        <img class="mw-100" src="<%= cloudinary_url(post.spoiler.key,  height: 600, crop: :scale) %>" >
                         <p class="card-text">
                             <%= post.content.to_plain_text.truncate(128) %>
                         </p>
