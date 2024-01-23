@@ -1,6 +1,6 @@
 class TournamentsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show searchposts ]
-    before_action :set_tournament, only: %i[ show edit update destroy searchposts ]
+    before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
+    before_action :set_tournament, only: %i[ show edit update destroy searchposts searchalbums ]
 
   def index
     @pagy, @tournaments = pagy(Tournament.all.order(:name, :subname, :group), items: 9)
@@ -47,6 +47,14 @@ class TournamentsController < ApplicationController
     @pagy, @posts = pagy(posts, items: 9)
   rescue Pagy::OverflowError
     redirect_to tournaments_url
+  end
+
+  def searchalbums
+    albums = Album.search_tournament(params[:id])
+    @count = albums.size
+    @pagy, @albums = pagy(albums, items: 9)
+  rescue Pagy::OverflowError
+    redirect_to teams_url
   end
 
   private
