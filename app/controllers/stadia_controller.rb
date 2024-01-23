@@ -1,6 +1,6 @@
 class StadiaController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show searchposts ]
-    before_action :set_stadium, only: %i[ show edit update destroy searchposts ]
+    before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
+    before_action :set_stadium, only: %i[ show edit update destroy searchposts searchalbums ]
 
   def index
     @pagy, @stadia = pagy(Stadium.all.order(:name, :street), items: 9)
@@ -48,6 +48,14 @@ class StadiaController < ApplicationController
     posts = Post.search_stadium(params[:id])
     @count = posts.size
     @pagy, @posts = pagy(posts, items: 9)
+  rescue Pagy::OverflowError
+    redirect_to stadia_url
+  end
+
+  def searchalbums
+    albums = Album.search_stadium(params[:id])
+    @count = albums.size
+    @pagy, @albums = pagy(albums, items: 9)
   rescue Pagy::OverflowError
     redirect_to stadia_url
   end

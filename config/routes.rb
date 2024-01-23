@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'locations/searchalbums', to: 'locations#searchalbums'
   get 'teams/searchalbums', to: 'teams#searchalbums'
   get 'tournaments/searchalbums', to: 'tournaments#searchalbums'
+  get 'stadia/searchalbums', to: 'stadia#searchalbums'
 
   resources :locations, :teams, :tournaments, :stadia, :matches, :posts, :stadium_posts, :albums
   

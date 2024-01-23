@@ -54,7 +54,7 @@ class TournamentsController < ApplicationController
     @count = albums.size
     @pagy, @albums = pagy(albums, items: 9)
   rescue Pagy::OverflowError
-    redirect_to teams_url
+    redirect_to tournaments_url
   end
 
   private
