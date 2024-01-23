@@ -208,10 +208,10 @@ uk:
       title: "Новий турнір"
     edit:
       title: "Редагувати турнір"
-    searchposts:
-      title_part1: "Дописи з турніру"
-      title_part2: "загалом"
-      title_empty: "відсутні"
+    searchtitle:
+      title_part1: "Пошук по турніру"
+      title_part2: "знайдено"
+      title_empty: "нічого не знайшов"
 
   matches:
     index:

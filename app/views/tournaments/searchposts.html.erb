@@ -1,37 +1,4 @@
-<div class="container text-start mb-3 mt-1">
-  <div class="row justify-content-end">
-    <div class="col"><h4>
-        <%= t('.title_part1') %>
-        <%= @tournament.name %>
-        <% if @tournament.subname.present? || @tournament.group.present? %>
-            /
-        <% end %>
-        <% if @tournament.subname.present? %>
-            <%= @tournament.subname %>
-        <% end %>
-        <% if @tournament.subname.present? && @tournament.group.present? %>
-            /
-        <% end %>
-        <% if @tournament.group.present? %>
-            <%= @tournament.group %>
-        <% end %>
-        <% if @posts.empty? %>
-            <%= t('.title_empty') %>
-        <% else %>
-            (<%= t('.title_part2') %> <%= @count %>)
-        <% end %>
-    </h4></div>
-  </div>
-</div>
+<%= render 'searchtitle' %>
 
-<div class="container">
-  <div class="row">
-    <% @posts.each do |post| %>
-      <%= render 'posts/post', post: post %>
-    <% end %>
-  </div>
-</div>
+<%= render 'shared/searchposts' %>
 
-<div class="d-flex justify-content-center">
-  <%== pagy_bootstrap_combo_nav_js(@pagy) if @pagy.pages > 1 %>
-</div>
