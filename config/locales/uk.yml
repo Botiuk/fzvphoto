@@ -185,10 +185,10 @@ uk:
       title: "Новий стадіон"
     edit:
       title: "Редагувати стадіон"
-    searchposts:
-      title_part1: "Дописи з стадіону"
-      title_part2: "загалом"
-      title_empty: "відсутні"
+    searchtitle:
+      title_part1: "Пошук по стадіону"
+      title_part2: "знайдено"
+      title_empty: "нічого не знайшов"
       street: "вул."
       region: "обл."
       district: "р-н"
