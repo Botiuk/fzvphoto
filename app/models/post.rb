@@ -4,7 +4,6 @@ class Post < ApplicationRecord
     
     belongs_to :location
     has_one :match
-    has_one :stadium_post
     has_one :album
 
     validates :title, presence: true
@@ -39,10 +38,6 @@ class Post < ApplicationRecord
 
     def self.search_stadium(stadium_id)
         Post.joins(:match).where(match: {stadium_id: stadium_id}).order(:postdate,:id).reverse_order
-    end
-
-    def self.search_stadium_post(stadium_id)
-        Post.joins(:stadium_post).where(stadium_post: {stadium_id: stadium_id}).order(:postdate,:id).reverse_order
     end
 
     def self.search_type(posttype)
