@@ -21,7 +21,7 @@
                 </h6>
                 <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, stadia_searchposts_path(id: stadium.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
                 <%= link_to '<i class="bi bi-camera"></i>'.html_safe, stadia_searchalbums_path(id: stadium.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
-                <%= link_to '<i class="bi bi-person-vcard"></i>'.html_safe, stadium_posts_searchposts_path(id: stadium.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
+                <%= link_to '<i class="bi bi-person-vcard"></i>'.html_safe, stadium, class: "btn btn-secondary btn-sm ms-1" %>
 
                 <% if user_signed_in? %>
                     <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_stadium_path(stadium), class: "btn btn-secondary btn-sm ms-1" %>

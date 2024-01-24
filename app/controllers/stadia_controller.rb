@@ -9,7 +9,6 @@ class StadiaController < ApplicationController
   end
 
   def show
-    redirect_to stadia_url
   end
 
   def new

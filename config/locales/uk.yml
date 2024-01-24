@@ -178,6 +178,7 @@ uk:
       street: "Вулиця"
       location: "Населений пункт"
       prompt: "-- виберіть населений пункт --"
+      stadiuminfo: "Про стадіон"
       placeholder:
         name: "Введіть назву стадіону"
         street: "Введіть вулицю та будинок"
@@ -189,6 +190,11 @@ uk:
       title_part1: "Пошук по стадіону"
       title_part2: "знайдено"
       title_empty: "нічого не знайшов"
+      street: "вул."
+      region: "обл."
+      district: "р-н"
+    show:
+      stadiuminfo_empty: "Тут має бути про стадіон - які трибуни, чи є дах і т.п. Але поки цей опис ще ненаписано. "
       street: "вул."
       region: "обл."
       district: "р-н"
@@ -287,10 +293,10 @@ uk:
       title: "Новий зв'язок 'репортаж про стадіон'"
     edit:
       title: "Редагувати зв'язок 'репортаж про стадіон'"
-    searchposts:
-      title_part1: "Дописи про стадіон"
-      title_part2: "загалом"
-      title_empty: "відсутні"
+    searchtitle:
+      title_part1: "Пошук матеріалів про стадіон"
+      title_part2: "знайдено"
+      title_empty: "нічого не знайшов"
 
   albums:
     index:

@@ -27,6 +27,11 @@
             <%= select(:stadium, :location_id, options_for_select(@locations, :selected => form.object.location_id), {:prompt => t('.prompt')}, {:class => "form-select"} ) %>
         </div>
 
+        <div class="field">
+          <%= form.label :stadiuminfo, t('.stadiuminfo'), style: "display: block" %>
+          <%= form.rich_text_area :stadiuminfo %>
+        </div>
+
         <div class="col-12">
           <%= form.button nil, class: "btn btn-success" do %>
             <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
