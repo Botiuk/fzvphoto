@@ -1,5 +1,5 @@
 class StadiumPostsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ searchposts ]
+    before_action :authenticate_user!, except: %i[ searchposts searchalbums ]
     before_action :set_stadium_post, only: %i[ show edit update destroy ]
     before_action :my_formhelpers, only: %i[ new edit create ]
 
@@ -46,6 +46,15 @@ class StadiumPostsController < ApplicationController
     posts = Post.search_stadium_post(params[:id])
     @count = posts.size
     @pagy, @posts = pagy(posts, items: 9)
+    @stadium = Stadium.find(params[:id])
+  rescue
+    redirect_to stadia_path
+  end
+
+  def searchalbums
+    albums = Album.search_stadium_album(params[:id])
+    @count = albums.size
+    @pagy, @posts = pagy(albums, items: 9)
     @stadium = Stadium.find(params[:id])
   rescue
     redirect_to stadia_path

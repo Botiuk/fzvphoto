@@ -29,4 +29,9 @@ class Album < ApplicationRecord
     Album.search_by_post(posts_id)
   end
 
+  def self.search_stadium_album(stadium_id)
+    posts_id = Post.search_stadium_post(stadium_id).pluck(:id)
+    Album.search_by_post(posts_id)
+  end
+
 end
