@@ -10,7 +10,6 @@ uk:
       stadium: "Стадіон створено"
       match: "Матч створено"
       post: "Допис створено"
-      stadium_post: "Зв'язок 'репортаж про стадіон' створено"
       album: "Фотоальбом створено"
     update:
       location: "Локацію оновлено"
@@ -19,7 +18,6 @@ uk:
       stadium: "Стадіон оновлено"
       match: "Матч оновлено"
       post: "Допис оновлено"
-      stadium_post: "Зв'язок 'репортаж про стадіон' оновлено"
       album: "Фотоальбом оновлено"
     destroy:
       location: "Локацію видалено"
@@ -28,9 +26,8 @@ uk:
       stadium: "Стадіон видалено"
       match: "Матч видалено"
       post: "Допис видалено"
-      stadium_post: "Зв'язок 'репортаж про стадіон' видалено"
       album: "Фотоальбом видалено"
-  
+
   activerecord:
     attributes:
       location:
@@ -55,7 +52,7 @@ uk:
         tournament: "Поле 'Турнір'"
         stadium: "Поле 'Стадіон'"
         stage: "Поле 'Тур або етап змагань'"
-      post: 
+      post:
         title: "Поле 'Заголовок'"
         location: "Поле 'Локація'"
         content: "Поле 'Текст допису'"
@@ -67,9 +64,6 @@ uk:
           rugby: "Регбі"
           karting: "Картинг"
           other: "Інше"
-      stadium_post:
-        stadium: "Поле 'Стадіон'"
-        post: "Поле 'Допис'"
       album:
         post: "Поле 'Допис до фоторепортажу'"
 
@@ -89,14 +83,13 @@ uk:
       tournament: "Додати турнір"
       match: "Додати матч"
       post: "Додати допис"
-      stadium_post: "Додати зв'язок 'репортаж про стадіон'"
       album: "Додати фотоальбом"
     submit: "Підтвердити"
     delete: "Видалити"
 
   delete:
     confirm: "Точно видалити?"
-  
+
   navigation:
     locations: "Локації"
     teams: "Команди"
@@ -105,7 +98,6 @@ uk:
     matches: "Матчі"
     posts: "Дописи"
     football: "Футбол"
-    stadium_posts: "Про стадіони"
     other: "Інше"
     hockey: "Хокей"
     rugby: "Регбі"
@@ -141,7 +133,7 @@ uk:
       title_empty: "нічого не знайшов"
       region: "обл."
       district: "р-н"
-    
+
   teams:
     index:
       title: "Команди"
@@ -198,7 +190,7 @@ uk:
       street: "вул."
       region: "обл."
       district: "р-н"
-  
+
   tournaments:
     index:
       title: "Турніри"
@@ -248,7 +240,7 @@ uk:
       title: "Новий матч"
     edit:
       title: "Редагувати матч"
-  
+
   posts:
     index:
       title: "Дописи"
@@ -274,29 +266,7 @@ uk:
     typeposts:
       title_part1: "Дописи по тематиці"
       title_part2: "загалом"
-      title_empty: "відсутні"     
-
-  stadium_posts:
-    index:
-      title: "Зв'язки 'репортаж про стадіон'"
-    stadium_post:
-      street: "вул."
-      region: "обл."
-      district: "р-н"
-    form:
-      stadium: "Стадіон"
-      post: "Допис"
-      prompt:
-        stadium: "-- виберіть стадіон --"
-        post: "-- виберіть допис --"
-    new:
-      title: "Новий зв'язок 'репортаж про стадіон'"
-    edit:
-      title: "Редагувати зв'язок 'репортаж про стадіон'"
-    searchtitle:
-      title_part1: "Пошук матеріалів про стадіон"
-      title_part2: "знайдено"
-      title_empty: "нічого не знайшов"
+      title_empty: "відсутні"
 
   albums:
     index:
