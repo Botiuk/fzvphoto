@@ -1,8 +1,4 @@
-<% if @posts.empty? %>
-  <div class="container text-center text-danger">
-    <h6><%= t('.posts_empty') %></h6>
-  </div>
-<% else %>
+<% if @posts.present? && @stadia.present? && @tournaments.present? && @teams.present? %>
   <%= form_with(model: match, html: {class: "card p-3 my-3"}) do |form| %>
       <% if match.errors.any? %>
           <div style="color: red">
@@ -66,4 +62,21 @@
       </div>
       
   <% end %>
+
+<% elsif @posts.empty? %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.posts_empty') %></h6>
+  </div>
+<% elsif @stadia.empty? %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.stadia_empty') %></h6>
+  </div>
+<% elsif @tournaments.empty? %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.tournaments_empty') %></h6>
+  </div>
+<% else %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.teams_empty') %></h6>
+  </div>
 <% end %>
