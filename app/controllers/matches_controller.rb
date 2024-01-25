@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
     before_action :my_formhelpers, only: %i[ new edit create ]
 
   def index
-    @pagy, @matches = pagy(Match.all.order(:match_date, :id).reverse_order, items: 9)
+    @pagy, @matches = pagy(Match.all.order(:id).reverse_order, items: 9)
   rescue Pagy::OverflowError
     redirect_to matches_url(page: 1)
   end
@@ -54,7 +54,7 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:match_date, :home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id, :stage, :post_id)
+    params.require(:match).permit(:home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id, :stage, :post_id)
   end
 
   def authenticate_user!

@@ -28,12 +28,12 @@
               <%= form.text_field :stage,  placeholder: t('.placeholder.stage'), class: "form-control" %>
           </div>
 
-          <div class="col-md-3">
-            <%= form.label :match_date, t('.matchdate'), style: "display: block" %>
-            <%= form.date_field :match_date, :value => ( form.object.match_date || Time.now.to_date), class: "form-control" %>
+          <div class="col-md-6">
+              <%= form.label :post_id, t('.post'), style: "display: block" %>
+              <%= select(:match, :post_id, options_for_select(@posts, :selected => form.object.post_id), {:prompt => t('.prompt.post')}, {:class => "form-select"}) %>
           </div>
 
-          <div class="col-md-9">
+          <div class="col-md-6">
               <%= form.label :stadium_id, t('.stadium'), style: "display: block" %>
               <%= select(:match, :stadium_id, options_for_select(@stadia, :selected => form.object.stadium_id), {:prompt => t('.prompt.stadium')}, {:class => "form-select"}) %>
           </div>
@@ -55,11 +55,6 @@
               <span class="input-group-text">:</span>
               <%= form.number_field :visitor_team_goal, min: 0, step: 1, :value => (form.object.visitor_team_goal || 0), class: "form-control" %>
             </div>
-          </div>
-
-          <div class="col-md-4">
-              <%= form.label :post_id, t('.post'), style: "display: block" %>
-              <%= select(:match, :post_id, options_for_select(@posts, :selected => form.object.post_id), {:prompt => t('.prompt.post')}, {:class => "form-select"}) %>
           </div>
 
           <div class="col-12">
