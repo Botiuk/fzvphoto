@@ -13,16 +13,16 @@ class AlbumsController < ApplicationController
 
     def new
       @album = Album.new
-      @posts = Post.formhelper_albums_new
+      @posts = Post.formhelper_album_new
     end
 
     def edit
-      @posts = Post.formhelper_albums_edit(@album)
+      @posts = Post.formhelper_album_edit(@album)
     end
 
     def create
       @album = Album.new(album_params)
-      @posts = Post.formhelper_albums_new
+      @posts = Post.formhelper_album_new
       if @album.save
         redirect_to albums_url, notice: t('notice.create.album')
       else

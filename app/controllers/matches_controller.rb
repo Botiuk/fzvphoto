@@ -14,14 +14,17 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @match = Match.new
+    @match = Match.new    
+    @posts = Post.formhelper_match_new
   end
 
   def edit
+    @posts = Post.formhelper_match_edit(@match)
   end
 
   def create
-    @match = Match.new(match_params)
+    @match = Match.new(match_params)    
+    @posts = Post.formhelper_match_new
     if @match.save
       redirect_to matches_url, notice: t('notice.create.match')
     else
@@ -62,6 +65,6 @@ class MatchesController < ApplicationController
     @teams = Team.formhelper
     @tournaments = Tournament.formhelper
     @stadia = Stadium.formhelper
-    @posts = Post.formhelper("football")
   end
+  
 end

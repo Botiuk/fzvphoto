@@ -4,5 +4,9 @@ class Match < ApplicationRecord
   belongs_to :tournament
   belongs_to :stadium
   belongs_to :post
+
+  def self.formhelper_posts
+    Match.all.pluck(:post_id)
+  end
   
 end
