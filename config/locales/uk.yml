@@ -280,3 +280,6 @@ uk:
       title: "Новий фотоальбом"
     edit:
       title: "Редагувати фотоальбом"
+    show:
+      region: "обл."
+      district: "р-н"
