@@ -1,54 +1,60 @@
-<%= form_with(model: post, html: {class: "card p-3 my-3"}) do |form| %>
-    <% if post.errors.any? %>
-        <div style="color: red">
-        <h2><%= t 'forms.messages.errors', count: post.errors.count %></h2>
+<% if @locations.empty? %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.locations_empty') %></h6>
+  </div>
+<% else %>
+  <%= form_with(model: post, html: {class: "card p-3 my-3"}) do |form| %>
+      <% if post.errors.any? %>
+          <div style="color: red">
+          <h2><%= t 'forms.messages.errors', count: post.errors.count %></h2>
 
-        <ul>
-            <% post.errors.each do |error| %>
-            <li><%= error.full_message %></li>
+          <ul>
+              <% post.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+              <% end %>
+          </ul>
+          </div>
+      <% end %>
+
+      <div class="row g-3">
+          <div class="col-12">
+            <%= form.label :title, t('.title'), style: "display: block" %>
+            <%= form.text_field :title,  placeholder: t('.placeholder.title'), autofocus: true, class: "form-control" %>
+          </div>
+
+          <div class="col-md-3">
+            <%= form.label :postdate, t('.postdate'), style: "display: block" %>
+            <%= form.date_field :postdate, :value => ( form.object.postdate || Time.now.to_date ), class: "form-control" %>
+          </div>
+
+          <div class="col-md-5">
+            <%= form.label :location_id, t('.location'), style: "display: block" %>
+            <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), {:prompt => t('.prompt.location')}, {:class => "form-select"}) %>
+          </div>
+
+          <div class="col-md-4">
+            <%= form.label :posttype, t('.posttype'), style: "display: block" %>
+            <%= form.select :posttype, Post.posttypes.keys.map{ |key| [Post.human_enum_name(:posttype, key), key] }, {:prompt => t('.prompt.posttype'), :selected => @post.posttype}, {:class => "form-select"} %>
+          </div>
+
+          <div class="col-12">
+            <%= form.label :spoiler, t('.spoiler'), style: "display: block" %>
+            <%= cl_image_tag post.spoiler.key, class: "w-25 my-2" if post.spoiler.present? %>
+            <%= form.file_field :spoiler, direct_upload: true, class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= form.label :content, t('.content'), style: "display: block" %>
+            <%= form.rich_text_area :content %>
+          </div>
+
+          <div class="col-12">
+            <%= form.button nil, class: "btn btn-success" do %>
+              <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
             <% end %>
-        </ul>
-        </div>
-    <% end %>
+          </div>
 
-    <div class="row g-3">
-        <div class="col-12">
-          <%= form.label :title, t('.title'), style: "display: block" %>
-          <%= form.text_field :title,  placeholder: t('.placeholder.title'), autofocus: true, class: "form-control" %>
-        </div>
+      </div>
 
-        <div class="col-md-3">
-          <%= form.label :postdate, t('.postdate'), style: "display: block" %>
-          <%= form.date_field :postdate, :value => ( form.object.postdate || Time.now.to_date ), class: "form-control" %>
-        </div>
-
-        <div class="col-md-5">
-          <%= form.label :location_id, t('.location'), style: "display: block" %>
-          <%= select(:post, :location_id, options_for_select(@locations, :selected => form.object.location_id), {:prompt => t('.prompt.location')}, {:class => "form-select"}) %>
-        </div>
-
-        <div class="col-md-4">
-          <%= form.label :posttype, t('.posttype'), style: "display: block" %>
-          <%= form.select :posttype, Post.posttypes.keys.map{ |key| [Post.human_enum_name(:posttype, key), key] }, {:prompt => t('.prompt.posttype'), :selected => @post.posttype}, {:class => "form-select"} %>
-        </div>
-
-        <div class="col-12">
-          <%= form.label :spoiler, t('.spoiler'), style: "display: block" %>
-          <%= cl_image_tag post.spoiler.key, class: "w-25 my-2" if post.spoiler.present? %>
-          <%= form.file_field :spoiler, direct_upload: true, class: "form-control" %>
-        </div>
-
-        <div class="field">
-          <%= form.label :content, t('.content'), style: "display: block" %>
-          <%= form.rich_text_area :content %>
-        </div>
-
-        <div class="col-12">
-          <%= form.button nil, class: "btn btn-success" do %>
-            <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
-          <% end %>
-        </div>
-
-    </div>
-
+  <% end %>
 <% end %>
