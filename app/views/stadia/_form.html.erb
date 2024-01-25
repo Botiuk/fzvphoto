@@ -1,8 +1,4 @@
-<% if @locations.empty? %>
-  <div class="container text-center text-danger">
-    <h6><%= t('.locations_empty') %></h6>
-  </div>
-<% else %>
+<% if @locations.present? %>
   <%= form_with(model: stadium, html: {class: "card p-3 my-3"}) do |form| %>
       <% if stadium.errors.any? %>
           <div style="color: red">
@@ -46,4 +42,8 @@
       </div>
 
   <% end %>
+<% else %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.locations_empty') %></h6>
+  </div>
 <% end %>

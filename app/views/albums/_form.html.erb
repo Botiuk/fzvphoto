@@ -1,13 +1,8 @@
-<% if @posts.empty? %>
-  <div class="container text-center text-danger">
-    <h6><%= t('.posts_empty') %></h6>
-  </div>
-<% else %>
+<% if @posts.present? %>
   <%= form_with(model: album, html: {class: "card p-3 my-3"}) do |form| %>
       <% if album.errors.any? %>
           <div style="color: red">
           <h2><%= t 'forms.messages.errors', count: album.errors.count %></h2>
-
           <ul>
               <% album.errors.each do |error| %>
               <li><%= error.full_message %></li>
@@ -33,7 +28,7 @@
           </div>
 
           <div class="col-12">
-            <%= form.label :photos, t('.photos'), style: "display: block" %>          
+            <%= form.label :photos, t('.photos'), style: "display: block" %>
             <%= form.file_field :photos, direct_upload: true, multiple: true, class: "form-control" %>
           </div>
 
@@ -46,4 +41,8 @@
       </div>
 
   <% end %>
+<% else %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.posts_empty') %></h6>
+  </div>
 <% end %>
