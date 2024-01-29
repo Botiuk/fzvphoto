@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @album = Album.search_album_id(@post.id)
   end
 
   def new

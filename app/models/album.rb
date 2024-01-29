@@ -10,6 +10,10 @@ class Album < ApplicationRecord
     Album.joins(:post).where(post: {location_id: location_id}).order(:id).reverse_order
   end
 
+  def self.search_album_id(post_id)
+    Album.where(post_id: post_id).pluck(:id)
+  end
+
   def self.search_by_post(posts_id)
     Album.where(post_id: posts_id).order(:id).reverse_order
   end

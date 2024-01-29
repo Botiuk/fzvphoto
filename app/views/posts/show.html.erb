@@ -3,6 +3,9 @@
     <div class="col">
       <h4>
         <%= @post.title %>
+        <% if @album.present? %>
+          <%= link_to '<i class="bi bi-camera"></i>'.html_safe, album_path(id: @album), class: "btn btn-secondary ms-2" %>
+        <% end %>
         <% if user_signed_in? %>
           <%= link_to '<i class="bi bi-highlighter"></i>'.html_safe, edit_post_path(@post), class: "btn btn-secondary ms-2" %>
         <% end %>
