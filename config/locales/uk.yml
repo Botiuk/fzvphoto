@@ -292,3 +292,12 @@ uk:
     show:
       region: "обл."
       district: "р-н"
+
+  devise:
+    sessions:
+      new:
+        title: "Вхід лише для автора!"
+        email: "Пошта"
+        password: "Пароль"
+        remember: " Запам'ятати мене"
+        login: "Ввійти"
