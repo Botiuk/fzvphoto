@@ -1,0 +1,22 @@
+<div class="container text-start mb-3 mt-1">
+  <div class="row justify-content-end">
+    <div class="col"><h4><%= t('.title') %></h4></div>
+    <div class="col text-end">
+        <% if user_signed_in? %>
+          <%= link_to t('button.add.post_about_stadium'), new_post_about_stadium_path, :method => :post, class: "btn btn-info" %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <% @post_about_stadia.each do |post_about_stadium| %>
+      <%= render post_about_stadium %>
+    <% end %>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%== pagy_bootstrap_combo_nav_js(@pagy) if @pagy.pages > 1 %>
+</div>

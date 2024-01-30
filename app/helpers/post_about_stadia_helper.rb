@@ -1,0 +1,2 @@
+module PostAboutStadiaHelper
+end

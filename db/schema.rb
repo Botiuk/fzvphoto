@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_01_25_105021) do
+ActiveRecord::Schema[7.0].define(version: 2024_01_30_104621) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -87,6 +87,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_105021) do
     t.index ["visitor_team_id"], name: "index_matches_on_visitor_team_id"
   end
 
+  create_table "post_about_stadia", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "stadium_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_about_stadia_on_post_id"
+    t.index ["stadium_id"], name: "index_post_about_stadia_on_stadium_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -142,6 +151,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_01_25_105021) do
   add_foreign_key "matches", "teams", column: "home_team_id"
   add_foreign_key "matches", "teams", column: "visitor_team_id"
   add_foreign_key "matches", "tournaments"
+  add_foreign_key "post_about_stadia", "posts"
+  add_foreign_key "post_about_stadia", "stadia"
   add_foreign_key "posts", "locations"
   add_foreign_key "stadia", "locations"
 end

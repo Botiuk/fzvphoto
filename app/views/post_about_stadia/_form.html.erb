@@ -1,0 +1,43 @@
+<% if @posts.present? && @stadia.present? %>
+    <%= form_with(model: post_about_stadium, html: {class: "card p-3 my-3"}) do |form| %>
+        <% if post_about_stadium.errors.any? %>
+            <div style="color: red">
+            <h2><%= t 'forms.messages.errors', count: post_about_stadium.errors.count %></h2>
+
+            <ul>
+                <% post_about_stadium.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+        <div class="row g-3">
+            <div class="col-md-6">
+                <%= form.label :stadium_id, t('.stadium'), style: "display: block" %>
+                <%= select(:post_about_stadium, :stadium_id, options_for_select(@stadia, :selected => form.object.stadium_id), {:prompt => t('.prompt.stadium')}, {:class => "form-select"} ) %>
+            </div>
+
+            <div class="col-md-6">
+                <%= form.label :post_id, t('.post'), style: "display: block" %>
+                <%= select(:post_about_stadium, :post_id, options_for_select(@posts, :selected => form.object.post_id), {:prompt => t('.prompt.post')}, {:class => "form-select"} ) %>
+            </div>
+
+            <div class="col-12">
+            <%= form.button nil, class: "btn btn-success" do %>
+                <i class="bi bi-check-lg"></i> <%= t('button.submit') %>
+            <% end %>
+            </div>
+
+        </div>
+
+    <% end %>
+<% elsif @posts.empty? %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.posts_empty') %></h6>
+  </div>
+<% else %>
+  <div class="container text-center text-danger">
+    <h6><%= t('.stadia_empty') %></h6>
+  </div>
+<% end %>
