@@ -54,4 +54,8 @@ class Post < ApplicationRecord
         Post.where(posttype: posttype).order(:postdate,:id).reverse_order
     end
 
+    def self.search_id_by_type(posttype)
+        Post.search_type(posttype).pluck(:id)
+    end
+
 end

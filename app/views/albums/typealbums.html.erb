@@ -2,14 +2,14 @@
   <div class="row justify-content-end">
     <div class="col"><h4>
         <%= t('.title_part1') %> "<%= Post.human_enum_name(:posttype, @posttype) %>"
-            <% if @posts.empty? %>
+            <% if @albums.empty? %>
               <%= t('.title_empty') %>
             <% else %>
               (<%= t('.title_part2') %> <%= @count %>)
             <% end %>
-            <%= link_to '<i class="bi bi-camera"></i>'.html_safe, albums_typealbums_path(:posttype => @posttype), class: "btn btn-secondary ms-2" %>
+            <%= link_to '<i class="bi bi-file-text"></i>'.html_safe, posts_typeposts_path(:posttype => @posttype), class: "btn btn-secondary ms-2" %>
         </h4></div>
   </div>
 </div>
 
-<%= render 'shared/searchposts' %>
+<%= render 'shared/searchalbums' %>

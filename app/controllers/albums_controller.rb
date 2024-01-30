@@ -43,6 +43,16 @@ class AlbumsController < ApplicationController
       redirect_to albums_url, notice: t('notice.destroy.album')
     end
 
+    def typealbums
+      posts_id = Post.search_id_by_type(params[:posttype])
+      albums = Album.search_by_post(posts_id)
+      @count = albums.size
+      @pagy, @albums = pagy(albums, items: 9)
+      @posttype = params[:posttype]
+    rescue Pagy::OverflowError
+      redirect_to locations_url
+    end
+
     private
 
     def set_album

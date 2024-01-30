@@ -292,6 +292,10 @@ uk:
     show:
       region: "обл."
       district: "р-н"
+    typealbums:
+      title_part1: "Фотоальбоми по тематиці"
+      title_part2: "загалом"
+      title_empty: "відсутні"
 
   devise:
     sessions:
