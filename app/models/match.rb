@@ -8,5 +8,9 @@ class Match < ApplicationRecord
   def self.formhelper_posts
     Match.all.pluck(:post_id)
   end
+
+  def self.search_stadium(stadium_id)
+    Match.where(stadium_id: stadium_id).pluck(:post_id)
+  end
   
 end

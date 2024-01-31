@@ -5,4 +5,9 @@ class PostAboutStadium < ApplicationRecord
   def self.formhelper_posts
     PostAboutStadium.all.pluck(:post_id)
   end
+
+  def self.search_stadium(stadium_id)
+    PostAboutStadium.where(stadium_id: stadium_id).pluck(:post_id)
+  end
+
 end
