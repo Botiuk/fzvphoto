@@ -1,0 +1,41 @@
+<%= javascript_include_tag "custom/modal_image_gallery.js" %>
+
+<!-- Images used to open the lightbox -->
+<div class="row px-3">
+    <% @album.photos.each_with_index do |photo, index| %>
+        <div class="col-4 p-1">
+            <% if photo.representable? %>
+                <img class="mw-100 hover-shadow" style="cursor: pointer;" onclick="openModal();currentSlide(<%= (index + 1) %>)" src="<%= cloudinary_url(photo.key,  height: 500, crop: :scale) %>" >
+            <% else %>
+                <%= link_to rails_blob_path(file, disposition: "attachment") do %>
+                    <%= image_tag "placeholder.png", alt: "Download file" %>
+                <% end %>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal pt-0">
+    <span class="close cursor" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+    
+        <% @album.photos.each_with_index do |photo, index| %>
+            <div class="mySlides">
+                <div class="numbertext"><%= (index + 1) %> / <%= @album.photos.size %></div>
+                <% if photo.representable? %>
+                    <img style="width:100%" src="<%= cloudinary_url(photo.key,  height: 1067, crop: :scale) %>" >
+                <% else %>
+                    <%= link_to rails_blob_path(file, disposition: "attachment") do %>
+                        <%= image_tag "placeholder.png", alt: "Download file" %>
+                    <% end %>
+                <% end %>
+            </div>
+        <% end %>    
+
+        <!-- Next/previous controls -->
+        <a class="prev" onclick="plusSlides(-1)" style="text-decoration: none;">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)" style="text-decoration: none;">&#10095;</a>
+
+    </div>
+</div>

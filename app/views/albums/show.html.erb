@@ -24,21 +24,9 @@
                 <% end %>
                 <%= @album.post.location.country %>
             </h6>
-        </div>    
-    </div>
-    <% if @album.photos.attached? %>
-        <div class="row justify-content-evenly px-3">
-            <% @album.photos.each do |photo| %>
-            <div class="col-4 px-0">
-                <% if photo.representable? %>
-                    <img class="mw-100" src="<%= cloudinary_url(photo.key,  height: 500, crop: :scale) %>" >
-                <% else %>
-                    <%= link_to rails_blob_path(file, disposition: "attachment") do %>
-                        <%= image_tag "placeholder.png", alt: "Download file" %>
-                    <% end %>
-                <% end %>
-               </div> 
-            <% end %>
         </div>
-    <% end %>
+    </div>
+
+    <%= render 'modal_image_gallery' %>
+
 </div>

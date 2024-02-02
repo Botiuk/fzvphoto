@@ -14,3 +14,4 @@ pin "jquery", to: "jquery.min.js", preload: true
 pin "jquery_ujs", to: "jquery_ujs.js", preload: true
 pin "popper", to: "popper.js", preload: true
 pin "activestorage", to: "activestorage.js"
+pin_all_from "app/javascript/custom", under: "custom"
