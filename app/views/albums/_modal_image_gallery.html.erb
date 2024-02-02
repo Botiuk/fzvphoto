@@ -1,9 +1,5 @@
 <!-- Modified code from https://www.w3schools.com/howto/howto_js_lightbox.asp -->
 
-<% content_for :mig_head do %>
-  <%= stylesheet_link_tag 'modal_image_gallery.css' %>
-<% end %>
-
 <%= javascript_include_tag 'custom/modal_image_gallery.js' %>
 
 <!-- Images used to open the lightbox -->
@@ -40,8 +36,8 @@
         <% end %>    
 
         <!-- Next/previous controls -->
-        <a class="prev" onclick="plusSlides(-1)" style="text-decoration: none;">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)" style="text-decoration: none;">&#10095;</a>
+        <a class="mig_prev" onclick="plusSlides(-1)" style="text-decoration: none;">&#10094;</a>
+        <a class="mig_next" onclick="plusSlides(1)" style="text-decoration: none;">&#10095;</a>
 
     </div>
 </div>
