@@ -18,7 +18,7 @@ class Post < ApplicationRecord
     end
 
     def self.formhelper_album_edit(album)
-        Post.where(id: album.post_id ).pluck(:title, :id) + Post.formhelper_albums_new
+        Post.where(id: album.post_id ).pluck(:title, :id) + Post.formhelper_album_new
     end
     
     def self.formhelper_match_new
