@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show ]
+    before_action :authenticate_user!, except: %i[ index show typealbums ]
     before_action :set_album, only: %i[ show edit update destroy ]
 
     def index
@@ -50,7 +50,7 @@ class AlbumsController < ApplicationController
       @pagy, @albums = pagy(albums, items: 9)
       @posttype = params[:posttype]
     rescue Pagy::OverflowError
-      redirect_to locations_url
+      redirect_to albums_url
     end
 
     private

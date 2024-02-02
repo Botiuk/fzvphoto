@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     @pagy, @posts = pagy(posts, items: 9)
     @posttype = params[:posttype]
   rescue Pagy::OverflowError
-    redirect_to locations_url
+    redirect_to posts_url
   end
 
   private
