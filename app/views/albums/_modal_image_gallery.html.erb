@@ -1,4 +1,10 @@
-<%= javascript_include_tag "custom/modal_image_gallery.js" %>
+<!-- Modified code from https://www.w3schools.com/howto/howto_js_lightbox.asp -->
+
+<% content_for :mig_head do %>
+  <%= stylesheet_link_tag 'modal_image_gallery.css' %>
+<% end %>
+
+<%= javascript_include_tag 'custom/modal_image_gallery.js' %>
 
 <!-- Images used to open the lightbox -->
 <div class="row px-3">
