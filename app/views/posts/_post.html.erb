@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <% if post.spoiler.present? %>
                         <img class="mw-100" src="<%= cloudinary_url(post.spoiler.key,  height: 600, crop: :scale) %>" >
-                        <p class="card-text">
+                        <p class="card-text" style="text-align: justify; text-indent: 15px;">
                             <%= post.content.to_plain_text.truncate(128) %>
                         </p>
                     <% else %>
@@ -21,7 +21,7 @@
                                     </tr>
                                 </table>
                             </h6>
-                            <%= post.content.to_plain_text.truncate(512) %>
+                            <div style="text-align: justify; text-indent: 15px;"><%= post.content.to_plain_text.truncate(512) %></div>
                         </p>
                     <% end %>
                 </div>

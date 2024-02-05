@@ -19,14 +19,12 @@
         <% end %>
       </h4>
     </div>
-    <div>
-        <%# link_to '<i class="bi bi-file-text"></i>'.html_safe, stadium_posts_searchposts_path(id: @stadium.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
-        <%# link_to '<i class="bi bi-camera"></i>'.html_safe, stadium_posts_searchalbums_path(id: @stadium.id), :method => :get, class: "btn btn-secondary btn-sm ms-1" %>
-    </div>
   </div>
-  <% if @stadium.stadiuminfo.present? %>
-    <%= @stadium.stadiuminfo %>
-  <% else %>
-    <%= t('.stadiuminfo_empty') %>
-  <% end %>
+  <div style="text-align: justify; text-indent: 15px;">
+    <% if @stadium.stadiuminfo.present? %>
+      <%= @stadium.stadiuminfo %>
+    <% else %>
+      <%= t('.stadiuminfo_empty') %>
+    <% end %>
+  </div>
 </div>
