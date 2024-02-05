@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'posts/typeposts', to: 'posts#typeposts'
   get 'albums/typealbums', to: 'albums#typealbums'
 
+  get 'about_blog', to: 'about_blog#index'
+
   resources :locations, :teams, :tournaments, :stadia, :matches, :posts, :albums, :post_about_stadia
 
   root "posts#index"
