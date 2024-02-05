@@ -97,7 +97,7 @@ uk:
     delete: "Видалити"
 
   delete:
-    confirm: "Точно видалити?"
+    confirm: "Точно видалити? Буде видалено все, що пов'язане"
 
   navigation:
     locations: "Локації"

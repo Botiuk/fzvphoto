@@ -1,8 +1,9 @@
 class Stadium < ApplicationRecord
-    belongs_to :location
-    has_many :matches
-    has_many :post_about_stadia
     has_rich_text :stadiuminfo
+
+    belongs_to :location
+    has_many :matches, dependent: :destroy
+    has_many :post_about_stadia, dependent: :destroy
 
     validates :name, presence: true
 

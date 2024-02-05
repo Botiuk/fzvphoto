@@ -1,6 +1,6 @@
 class Location < ApplicationRecord
-    has_many :posts
-    has_many :stadia
+    has_many :posts, dependent: :destroy
+    has_many :stadia, dependent: :destroy
 
     validates :country, presence: true
     validates :loctype, presence: true
