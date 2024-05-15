@@ -7,8 +7,7 @@ class Post < ApplicationRecord
     has_one :album, dependent: :destroy
     has_one :post_about_stadium, dependent: :destroy
 
-    validates :title, presence: true
-    validates :content, presence: true
+    validates :title, :content, :posttype, presence: true
 
     enum :posttype, { football: 0, stadium: 1, hockey: 2, rugby: 3, karting: 4, other: 5 }, prefix: true
 

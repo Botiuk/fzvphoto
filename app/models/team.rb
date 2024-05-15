@@ -5,8 +5,7 @@ class Team < ApplicationRecord
     has_many :home_team_matches, class_name: 'Match', foreign_key: 'home_team_id', dependent: :destroy
     has_many :visitor_team_matches, class_name: 'Match', foreign_key: 'visitor_team_id', dependent: :destroy
 
-    validates :name, presence: true
-    validates :represent, presence: true
+    validates :name, :represent, presence: true
 
     def self.formhelper
         Team.order(:name).pluck(:name, :id)
