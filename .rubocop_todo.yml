@@ -1,3 +1,16 @@
 Layout/LineLength:
   Exclude:
     - 'config/initializers/devise.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'db/migrate/20231121103948_create_active_storage_tables.active_storage.rb'
+    - 'db/migrate/20231114103503_create_matches.rb'
+
+Metrics/AbcSize:
+  Exclude:
+    - 'db/migrate/20231121103948_create_active_storage_tables.active_storage.rb'
+
+Rails/ReversibleMigration:
+  Exclude:
+    - 'db/migrate/20240124103102_drop_stadium_posts.rb'

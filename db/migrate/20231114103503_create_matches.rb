@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMatches < ActiveRecord::Migration[7.0]
   def change
     create_table :matches do |t|
@@ -10,7 +12,7 @@ class CreateMatches < ActiveRecord::Migration[7.0]
       t.references :stadium, null: false, foreign_key: true
 
       t.timestamps
-    end    
+    end
     add_foreign_key :matches, :teams, column: :home_team_id
     add_foreign_key :matches, :teams, column: :visitor_team_id
   end

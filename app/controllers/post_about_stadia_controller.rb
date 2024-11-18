@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PostAboutStadiaController < ApplicationController
-    before_action :authenticate_user!
-    before_action :set_post_about_stadium, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :set_post_about_stadium, only: %i[show edit update destroy]
 
   def index
     @pagy, @post_about_stadia = pagy(PostAboutStadium.all, items: 9)
@@ -52,7 +54,7 @@ class PostAboutStadiaController < ApplicationController
     @count = posts.size
     @pagy, @posts = pagy(posts, items: 9)
     @stadium = Stadium.find(params[:id])
-  rescue
+  rescue StandardError
     redirect_to stadia_path
   end
 
@@ -61,7 +63,7 @@ class PostAboutStadiaController < ApplicationController
     @count = albums.size
     @pagy, @posts = pagy(albums, items: 9)
     @stadium = Stadium.find(params[:id])
-  rescue
+  rescue StandardError
     redirect_to stadia_path
   end
 
@@ -80,5 +82,4 @@ class PostAboutStadiaController < ApplicationController
   def authenticate_user!
     redirect_to root_path unless user_signed_in?
   end
-
 end

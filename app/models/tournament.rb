@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Tournament < ApplicationRecord
-    has_many :matches, dependent: :destroy
+  has_many :matches, dependent: :destroy
 
-    validates :name, presence: true
+  validates :name, presence: true
 
-    def self.formhelper
-        Tournament.order(:name).pluck(:name, :id)
-    end
+  def self.formhelper
+    Tournament.order(:name).pluck(:name, :id)
+  end
 end

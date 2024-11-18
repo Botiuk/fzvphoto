@@ -1,22 +1,22 @@
+# frozen_string_literal: true
+
 class LocationsController < ApplicationController
-  before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
-  before_action :set_location, only: %i[ show edit update destroy searchposts searchalbums ]
+  before_action :authenticate_user!, except: %i[index show searchposts searchalbums]
+  before_action :set_location, only: %i[show edit update destroy searchposts searchalbums]
 
   def index
-    @pagy, @locations = pagy(Location.all.order(:name, :region, :district), items: 9)
+    @pagy, @locations = pagy(Location.order(:name, :region, :district), items: 9)
   rescue Pagy::OverflowError
     redirect_to locations_url(page: 1)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @location = Location.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @location = Location.new(location_params)
@@ -71,5 +71,4 @@ class LocationsController < ApplicationController
   def authenticate_user!
     redirect_to locations_url unless user_signed_in?
   end
-
 end

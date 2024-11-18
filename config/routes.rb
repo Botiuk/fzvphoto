@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
 
@@ -18,5 +20,5 @@ Rails.application.routes.draw do
 
   resources :locations, :teams, :tournaments, :stadia, :matches, :posts, :albums, :post_about_stadia
 
-  root "posts#index"
+  root 'posts#index'
 end

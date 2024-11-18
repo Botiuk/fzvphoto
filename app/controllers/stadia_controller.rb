@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 class StadiaController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
-    before_action :set_stadium, only: %i[ show edit update destroy searchposts searchalbums ]
+  before_action :authenticate_user!, except: %i[index show searchposts searchalbums]
+  before_action :set_stadium, only: %i[show edit update destroy searchposts searchalbums]
 
   def index
-    @pagy, @stadia = pagy(Stadium.all.order(:name, :street), items: 9)
+    @pagy, @stadia = pagy(Stadium.order(:name, :street), items: 9)
   rescue Pagy::OverflowError
     redirect_to stadia_url(page: 1)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @stadium = Stadium.new

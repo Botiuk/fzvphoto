@@ -1,22 +1,22 @@
+# frozen_string_literal: true
+
 class TeamsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
-    before_action :set_team, only: %i[ show edit update destroy searchposts searchalbums ]
+  before_action :authenticate_user!, except: %i[index show searchposts searchalbums]
+  before_action :set_team, only: %i[show edit update destroy searchposts searchalbums]
 
   def index
-    @pagy, @teams = pagy(Team.all.order(:name, :represent), items: 9)
+    @pagy, @teams = pagy(Team.order(:name, :represent), items: 9)
   rescue Pagy::OverflowError
     redirect_to teams_url(page: 1)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @team = Team.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @team = Team.new(team_params)
@@ -71,5 +71,4 @@ class TeamsController < ApplicationController
   def authenticate_user!
     redirect_to teams_url unless user_signed_in?
   end
-
 end

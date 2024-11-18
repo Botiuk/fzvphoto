@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class MatchesController < ApplicationController
-    before_action :authenticate_user!
-    before_action :set_match, only: %i[ show edit update destroy ]
-    before_action :my_formhelpers, only: %i[ new edit create ]
+  before_action :authenticate_user!
+  before_action :set_match, only: %i[show edit update destroy]
+  before_action :my_formhelpers, only: %i[new edit create]
 
   def index
-    @pagy, @matches = pagy(Match.all.order(:id).reverse_order, items: 9)
+    @pagy, @matches = pagy(Match.order(:id).reverse_order, items: 9)
   rescue Pagy::OverflowError
     redirect_to matches_url(page: 1)
   end
@@ -14,7 +16,7 @@ class MatchesController < ApplicationController
   end
 
   def new
-    @match = Match.new    
+    @match = Match.new
     @posts = Post.formhelper_match_new
   end
 
@@ -23,7 +25,7 @@ class MatchesController < ApplicationController
   end
 
   def create
-    @match = Match.new(match_params)    
+    @match = Match.new(match_params)
     @posts = Post.formhelper_match_new
     if @match.save
       redirect_to matches_url, notice: t('notice.create.match')
@@ -54,7 +56,8 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id, :stadium_id, :stage, :post_id)
+    params.require(:match).permit(:home_team_id, :visitor_team_id, :home_team_goal, :visitor_team_goal, :tournament_id,
+                                  :stadium_id, :stage, :post_id)
   end
 
   def authenticate_user!
@@ -66,5 +69,4 @@ class MatchesController < ApplicationController
     @tournaments = Tournament.formhelper
     @stadia = Stadium.formhelper
   end
-  
 end

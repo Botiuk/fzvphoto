@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class TournamentsController < ApplicationController
-    before_action :authenticate_user!, except: %i[ index show searchposts searchalbums ]
-    before_action :set_tournament, only: %i[ show edit update destroy searchposts searchalbums ]
+  before_action :authenticate_user!, except: %i[index show searchposts searchalbums]
+  before_action :set_tournament, only: %i[show edit update destroy searchposts searchalbums]
 
   def index
-    @pagy, @tournaments = pagy(Tournament.all.order(:name, :subname, :group), items: 9)
+    @pagy, @tournaments = pagy(Tournament.order(:name, :subname, :group), items: 9)
   rescue Pagy::OverflowError
     redirect_to tournaments_url(page: 1)
   end
@@ -16,8 +18,7 @@ class TournamentsController < ApplicationController
     @tournament = Tournament.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @tournament = Tournament.new(tournament_params)
@@ -72,5 +73,4 @@ class TournamentsController < ApplicationController
   def authenticate_user!
     redirect_to tournaments_url unless user_signed_in?
   end
-
 end

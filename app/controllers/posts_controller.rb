@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: %i[ index show typeposts ]
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: %i[index show typeposts]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
-    @pagy, @posts = pagy(Post.all.order(:postdate, :id).reverse_order, items: 9)
+    @pagy, @posts = pagy(Post.order(:postdate, :id).reverse_order, items: 9)
   rescue Pagy::OverflowError
     redirect_to posts_url(page: 1)
   end
