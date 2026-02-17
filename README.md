@@ -4,8 +4,6 @@ Built with: Rails 7.2.1.2, Ruby 3.3.5, postgres, Turbo, Stimulus, Bootstrap, Tri
 
 Code style checking: RuboCop and his special cops.
 
-Deployed on: https://fzvphoto.onrender.com/
-
 Personal blog app for my real personal blog facebook.com/fzvphoto with photography and text reports from sports events (mostly from amateur football).
 
 My native language is Ukrainian and this is a single language on app. But all interface text was made with I18n and easy to change with translating locale file.
